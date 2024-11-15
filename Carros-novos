@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros Brasil - Carros Novos</title>
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; 
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        header {
+            background-color: black; 
+            padding: 0px 0;
+            text-align: center;
+            font-size: 0px;
+            font-weight: bold;
+            color: white;
+        }
+    
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #131212;
+            position:relative;
+            top: 0;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+
+        .navbar a:hover {
+            background-color:red; 
+            color: #131212;
+        }
+
+        /* Contêiner de conteúdo principal */
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center; /* Garante que os itens sejam centralizados */
+        }
+
+        .car-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .car-card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-card .details {
+            padding: 15px;
+        }
+
+        .car-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .car-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .car-card .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: greenyellow; /* Ciano */
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background-color: black; 
+            padding: 30px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            color: #131212;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section a {
+            background-color: #333;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-section a:hover {
+            background-color: red; 
+            color: #131212;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar a {
+                padding: 15px;
+                text-align: left;
+            }
+
+            .navbar.active {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: #333;
+                height: 100vh;
+                width: 250px;
+                transform: translateX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .navbar-toggle {
+                display: block;
+                background-color: #333;
+                color: white;
+                padding: 15px;
+                font-size: 30px;
+                border: none;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                cursor: pointer;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section a {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <h1><a href="https://carrosbrasil.netlify.app"><img src="https://i.ibb.co/6b3gH9d/empresa-removebg-preview.png" width="200px" ></a></h1>
+    </header>
+
+    <div class="navbar">
+        <a href="#">Pagina inicial</a>
+        <a href="#">Carros Novos</a>
+        <a href="#">Carros Seminovos</a>
+        <a href="#">Carros Vendidos</a>
+    </div>
+
+    <div class="main-content">
+        <div class="car-card">
+            <img src="https://img.olx.com.br/images/06/062290558851582.jpg" alt="Chevrolet Spin 2023">
+            <div class="details">
+                <h3>Chevrolet Spin 2023</h3>
+                <p>Apenas 7.000 km, 2023, Automático, Branco.</p>
+                <p class="price">R$ 95.000,00</p>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="https://autoagora.com.br/wp-content/uploads/2022/12/14-avaliacao-vw-virtus-highline-comfortline-2022-movimento-autoagora-com-br.jpg-1024x480.jpg" alt="Volkswagen Virtus 2022">
+            <div class="details">
+                <h3>Volkswagen Virtus 2022</h3>
+                <p>Apenas 15.000 km, 2022, Manual, Prata.</p>
+                <p class="price">R$ 110.000,00</p>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="https://s3.ecompletocarros.dev/images/lojas/108/veiculos/149297/veiculoInfoVeiculoImagesMobile/vehicle_image_1686953162_d41d8cd98f00b204e9800998ecf8427e.jpeg" alt="Jeep Renegade 2023">
+            <div class="details">
+                <h3>Jeep Renegade 2023</h3>
+                <p>Apenas 12.000 km, 2023, Automático, Preto.</p>
+                <p class="price">R$ 120.000,00</p>
+            </div>
+        </div>
+        <div class="car-card">
+            <img src="https://autoentusiastas.com.br/ae/wp-content/uploads/2020/08/Territory_Exterior_1_4-800x450.jpg" alt="Ford Territory 2022" class="img">
+            <div class="details">
+                <h3>Ford Territory 2022</h3>
+                <p>Apenas 20.000 km, 2022, Automático, Prata.</p>
+                <p class="price">R$ 160.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://www.autoo.com.br/fotos/2022/6/960_720/bmw3_01062022_71563_960_720.jpg" alt="BMW X1 2023" class="img">
+            <div class="details">
+                <h3>BMW X1 2023</h3>
+                <p>Apenas 5.000 km, 2023, Automático, Branco.</p>
+                <p class="price">R$ 230.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://autocerto.com/fotos/2650/921370/1.jpg" alt="Toyota Hilux 2022" class="img">
+            <div class="details">
+                <h3>Toyota Hilux 2022</h3>
+                <p>Apenas 15.000 km, 2022, Automático, Prata.</p>
+                <p class="price">R$ 230.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/283761836/transform/t_crop" alt="Mitsubishi L200 Triton 2023" class="img">
+            <div class="details">
+                <h3>Mitsubishi L200 Triton 2023</h3>
+                <p>Apenas 10.000 km, 2023, Manual, Azul.</p>
+                <p class="price">R$ 200.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://seminovosrj.com.br/fotos/784/1051284/11.jpg" alt="Chery Tiggo 5X 2022" class="img">
+            <div class="details">
+                <h3>Chery Tiggo 5X 2022</h3>
+                <p>Apenas 8.000 km, 2022, Automático, Vermelho.</p>
+                <p class="price">R$ 135.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://www.timbonet.com.br/wp-content/uploads/2022/01/c667bc18-dc51-4102-9a4d-75d75ae12a7b.jpg" alt="Honda City 2022" class="img">
+            <div class="details">
+                <h3>Honda City 2022</h3>
+                <p>Apenas 12.000 km, 2022, Manual, Cinza.</p>
+                <p class="price">R$ 105.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://s3.ecompletocarros.dev/images/lojas/209/veiculos/53049/veiculoInfoVeiculoImagesMobile/vehicle_image_1613160435_f869df8e90d1d2f8939ee8e749b7a96f.jpeg" alt="Peugeot 3008 2023" class="img">
+            <div class="details">
+                <h3>Peugeot 3008 2023</h3>
+                <p>Apenas 6.000 km, 2023, Automático, Preto.</p>
+                <p class="price">R$ 195.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://baycitymitsubishi.co.nz/wp-content/uploads/2023/11/2022-Kia-Seltos-LxPJE356-1.jpg" alt="Kia Seltos 2022" class="img">
+            <div class="details">
+                <h3>Kia Seltos 2022</h3>
+                <p>Apenas 9.000 km, 2022, Automático, Branco.</p>
+                <p class="price">R$ 135.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://www.autoo.com.br/fotos/2021/12/1280_960/Audi4_14122021_70084_1280_960.jpg" alt="Audi Q3 2022" class="img">
+            <div class="details">
+                <h3>Audi Q3 2022</h3>
+                <p>Apenas 10.000 km, 2022, Automático, Azul.</p>
+                <p class="price">R$ 230.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/417164307/transform/fl_progressive,f_webp,q_70,w_600" alt="Nissan Frontier 2022" class="img">
+            <div class="details">
+                <h3>Nissan Frontier 2022</h3>
+                <p>Apenas 15.000 km, 2022, Automático, Cinza.</p>
+                <p class="price">R$ 180.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://www.santoantonioautomoveis.com.br/carros/98b8ddebce14bd647ff83564fa7cfc75-bigjpeg-volkswagen-nivus-10727559-1000-750-70.jpg" alt="Volkswagen Nivus 2022" class="img">
+            <div class="details">
+                <h3>Volkswagen Nivus 2022</h3>
+                <p>Apenas 10.000 km, 2022, Automático, Prata.</p>
+                <p class="price">R$ 100.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://s2-autoesporte.glbimg.com/0nGW5_nuzDiX_zVI5yHZxFLGP7U=/0x0:1024x683/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/s/Z/9DDRF6TvW8aTlQ2fYTsg/wr-v.jpg" alt="Honda WR-V 2022" class="img">
+            <div class="details">
+                <h3>Honda WR-V 2022</h3>
+                <p>Apenas 8.000 km, 2022, Manual, Branco.</p>
+                <p class="price">R$ 95.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2023/04/Chevrolet-Tracker-RS-8-1-e1711576355198.jpg?crop=1&resize=1212,909" alt="Chevrolet Tracker 2023" class="img">
+            <div class="details">
+                <h3>Chevrolet Tracker 2023</h3>
+                <p>Apenas 7.000 km, 2023, Automático, Vermelho.</p>
+                <p class="price">R$ 140.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2021/10/Fiat-Pulse-Impetus-Turbo-200-1.0-CVT-2022-11.jpg?quality=70&strip=info&w=720&crop=1" alt="Fiat Pulse 2022" class="img">
+            <div class="details">
+                <h3>Fiat Pulse 2022</h3>
+                <p>Apenas 9.000 km, 2022, Automático, Azul.</p>
+                <p class="price">R$ 85.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://www.compreblindados.com.br/img/Veiculos/28922/20210807-toyota-hillux-sw4-preto-20216605.jpeg" alt="Toyota SW4 2023" class="img">
+            <div class="details">
+                <h3>Toyota SW4 2023</h3>
+                <p>Apenas 5.000 km, 2023, Automático, Preto.</p>
+                <p class="price">R$ 230.000,00</p>
+            </div>
+        </div>
+        <div class="car-card">
+            <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjkxODkyL0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNzAzNjAwNjQyMzU4LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjU0MCwiaGVpZ2h0IjozMTB9fX0=" alt="Fiat Uno 2022" class="img">
+            <div class="details">
+                <h3>Fiat Uno 2022</h3>
+                <p>Apenas 6.000 km, 2022, Manual, Branco.</p>
+                <p class="price">R$ 55.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://i.ytimg.com/vi/e6VBis3-5lU/sddefault.jpg" alt="Volkswagen Saveiro 2022" class="img">
+            <div class="details">
+                <h3>Volkswagen Saveiro 2022</h3>
+                <p>Apenas 8.000 km, 2022, Manual, Vermelho.</p>
+                <p class="price">R$ 80.000,00</p>
+            </div>
+        </div>
+        
+        
+        <!-- Mais carros... -->
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Termos de Serviço</a> |
+            <a href="#">Política de Privacidade</a> |
+            <a href="#">SAC</a>
+        </div>
+        <p>&copy; 2024 CarrosX - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
