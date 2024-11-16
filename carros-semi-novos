@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros Brasil - Carros Novos</title>
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; 
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        header {
+            background-color: black; 
+            padding: 0px 0;
+            text-align: center;
+            font-size: 0px;
+            font-weight: bold;
+            color: white;
+        }
+    
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #131212;
+            position:relative;
+            top: 0;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+
+        .navbar a:hover {
+            background-color:red; 
+            color: #131212;
+        }
+
+        /* Contêiner de conteúdo principal */
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center; /* Garante que os itens sejam centralizados */
+        }
+
+        .car-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .car-card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-card .details {
+            padding: 15px;
+        }
+
+        .car-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .car-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .car-card .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: greenyellow; /* Ciano */
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background-color: black; 
+            padding: 30px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            color: #131212;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section a {
+            background-color: #333;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-section a:hover {
+            background-color: red; 
+            color: #131212;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar a {
+                padding: 15px;
+                text-align: left;
+            }
+
+            .navbar.active {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: #333;
+                height: 100vh;
+                width: 250px;
+                transform: translateX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .navbar-toggle {
+                display: block;
+                background-color: #333;
+                color: white;
+                padding: 15px;
+                font-size: 30px;
+                border: none;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                cursor: pointer;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section a {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <h1><a href="https://carrosbrasil.netlify.app"><img src="https://i.ibb.co/6b3gH9d/empresa-removebg-preview.png" width="200px" ></a></h1>
+    </header>
+
+    <div class="navbar">
+        <a href="https://carrosbrasil.netlify.app/ ">Pagina inicial</a>
+        <a href="https://carrosbrasil.netlify.app/carros-novos">Carros Novos</a>
+        <a href="https://carrosbrasil.netlify.app/carros-semi-novos">Carros Seminovos</a>
+        <a href="#">Carros Vendidos</a>
+    </div>
+
+    <div class="main-content">
+        <div class="car-card">
+            <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/423789244/transform/fl_progressive,f_webp,q_70,w_600" alt="Volkswagen Gol 2010" class="img">
+            <div class="details">
+                <h3>Volkswagen Gol 2010</h3>
+                <p>Apenas 80.000 km, 2010, Manual, Preto.</p>
+                <p class="price">R$ 30.000,00</p>
+            </div>
+    </div>
+            <div class="car-card">
+                <img src="https://i.pinimg.com/736x/46/25/f4/4625f460c4f17248e3459454eaf5a4e7.jpg" alt="Honda Civic 2010" class="img">
+                <div class="details">
+                    <h3>Honda Civic 2010</h3>
+                    <p>Apenas 95.000 km, 2010, Automático, Prata.</p>
+                    <p class="price">R$ 45.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://www.chavesnamao.com.br/imn/0358x0250/N/veiculos/343033/7185968/chevrolet-onix-em-guarulhos-sp-fbc4ba57210-00.jpg" alt="Chevrolet Onix 2010" class="img">
+                <div class="details">
+                    <h3>Chevrolet Onix 2010</h3>
+                    <p>Apenas 75.000 km, 2010, Manual, Branco.</p>
+                    <p class="price">R$ 28.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/401876542/transform/fl_progressive,f_webp,q_70,w_600" alt="Fiat Palio 2010" class="img">
+                <div class="details">
+                    <h3>Fiat Palio 2010</h3>
+                    <p>Apenas 85.000 km, 2010, Manual, Vermelho.</p>
+                    <p class="price">R$ 25.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjESTicAPu3i57ACFvBt5AbKCKf5tC2HfnshIFBQH2fhamr4y7x3FmFc_5Wp7fvaSM4h9FpGtoficOHgr60P08ijAax8WHYBe5f1v4tKdikcFDnTB1ERZ8Bx5jrifxq-Q4-ZSsrD2Fmsds/s1600/Toyota-Corolla-2011+%252810%2529.jpg" alt="Toyota Corolla 2010" class="img">
+                <div class="details">
+                    <h3>Toyota Corolla 2010</h3>
+                    <p>Apenas 90.000 km, 2010, Automático, Cinza.</p>
+                    <p class="price">R$ 50.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://cro.i.uol.com.br/carros/2010/04/22/ford-fiesta-2011-hatch-1271983068219_560x400.jpg" alt="Ford Fiesta 2010" class="img">
+                <div class="details">
+                    <h3>Ford Fiesta 2010</h3>
+                    <p>Apenas 70.000 km, 2010, Manual, Azul.</p>
+                    <p class="price">R$ 22.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://www.chavesnamao.com.br/imn/0640X0480/N/veiculos/254951/6512903/renault-sandero-1-0-authentique-16v-4p_f865cbe6115.jpg" alt="Renault Sandero 2010" class="img">
+                <div class="details">
+                    <h3>Renault Sandero 2010</h3>
+                    <p>Apenas 80.000 km, 2010, Manual, Branco.</p>
+                    <p class="price">R$ 23.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://uploads.vrum.com.br/2023/08/eeff3e32-jeep-compass-modelo-2011-prata-de-frente-estatico-no-asfalto.jpg" alt="Jeep Compass 2010" class="img">
+                <div class="details">
+                    <h3>Jeep Compass 2010</h3>
+                    <p>Apenas 110.000 km, 2010, Automático, Prata.</p>
+                    <p class="price">R$ 55.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7vDsV1enFYluh6O49Qy5hNDnjajfvx4SJqw&s" alt="Chevrolet S10 2010" class="img">
+                <div class="details">
+                    <h3>Chevrolet S10 2010</h3>
+                    <p>Apenas 100.000 km, 2010, Manual, Preto.</p>
+                    <p class="price">R$ 47.000,00</p>
+                </div>
+            </div>
+            
+            <div class="car-card">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnVeVFZogpcIju08ufEL84tZHwQowvZoA70OTdHevCeEyyVPTVdfUK7gD3OD0zmZy4MaPwX2Qemkhy3nZMMfJegUj6e2IV7tYY0vOkuFI8lX_bKcwSrpOLo-vIJ_BceCegLYyaoqxVxUEa/" alt="Hyundai Tucson 2010" class="img">
+                <div class="details">
+                    <h3>Hyundai Tucson 2010</h3>
+                    <p>Apenas 95.000 km, 2010, Automático, Vermelho.</p>
+                    <p class="price">R$ 42.000,00</p>
+                </div>
+            </div>
+            <div class="car-card">
+            <img src="https://f7432d8eadcf865aa9d9-9c672a3a4ecaaacdf2fee3b3e6fd2716.ssl.cf3.rackcdn.com/C1680/U2252/IMG_18137-large.jpg" alt="Volkswagen Polo 2015" class="img">
+            <div class="details">
+                <h3>Volkswagen Polo 2015</h3>
+                <p>Apenas 50.000 km, 2015, Manual, Preto.</p>
+                <p class="price">R$ 38.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/caradvice/private/1499f88522cb499c4fc2669f98f8f282" alt="Honda HR-V 2015" class="img">
+            <div class="details">
+                <h3>Honda HR-V 2015</h3>
+                <p>Apenas 60.000 km, 2015, Automático, Branco.</p>
+                <p class="price">R$ 68.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://carango.com.br/f.php?w=810&h=620&cc=0&zc=1&src=https://carango.nyc3.digitaloceanspaces.com/images/veiculos/2023/01/chevrolet-tracker-2015-1-4-ltz-4p-flex-automatico-flex-111464-dhqj8a.jpg" alt="Chevrolet Tracker 2015" class="img">
+            <div class="details">
+                <h3>Chevrolet Tracker 2015</h3>
+                <p>Apenas 55.000 km, 2015, Automático, Prata.</p>
+                <p class="price">R$ 72.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS5_9zvq42lnNy3VnnWd_Yz8-pRsY-RvGXxRA8o3zwfluuSqn91vxNdZkyE395E-BlpL_hLGh0qUSJrQr3WRHF8ObYiepQBaPHm-Vqs4VPePZUWHqBDoGdTVayFnJhRNR7xWhJrxFggJM/s1600/Nov-Uno-Way-2015+(1).jpg" alt="Fiat Uno 2015" class="img">
+            <div class="details">
+                <h3>Fiat Uno 2015</h3>
+                <p>Apenas 40.000 km, 2015, Manual, Vermelho.</p>
+                <p class="price">R$ 25.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://s3.ecompletocarros.dev/images/lojas/120/veiculos/48051/veiculoInfoVeiculoImagesMobile/vehicle_image_1608315785_0b09d75b2f1ed24e76e20d71bd20010a.jpeg" alt="Toyota Etios 2015" class="img">
+            <div class="details">
+                <h3>Toyota Etios 2015</h3>
+                <p>Apenas 45.000 km, 2015, Manual, Azul.</p>
+                <p class="price">R$ 30.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://www.chavesnamao.com.br/imn/0358x0250/N/veiculos/78585/7108502/hyundai-creta-em-belo-horizonte-mg-7a6f2811.jpg" alt="Hyundai Creta 2015" class="img">
+            <div class="details">
+                <h3>Hyundai Creta 2015</h3>
+                <p>Apenas 50.000 km, 2015, Automático, Branco.</p>
+                <p class="price">R$ 80.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/408481862/transform/fl_progressive,f_webp,q_70,w_600" alt="Nissan Sentra 2015" class="img">
+            <div class="details">
+                <h3>Nissan Sentra 2015</h3>
+                <p>Apenas 60.000 km, 2015, Automático, Prata.</p>
+                <p class="price">R$ 55.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_859622-MLB78251686621_082024-O.webp" alt="Ford Ka 2015" class="img">
+            <div class="details">
+                <h3>Ford Ka 2015</h3>
+                <p>Apenas 45.000 km, 2015, Manual, Azul.</p>
+                <p class="price">R$ 28.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8qt9kC8hV4P1GX6q6z1hP3-Y3y8yyNbZX9Q&s" alt="Jeep Renegade 2015" class="img">
+            <div class="details">
+                <h3>Jeep Renegade 2015</h3>
+                <p>Apenas 70.000 km, 2015, Automático, Preto.</p>
+                <p class="price">R$ 85.000,00</p>
+            </div>
+        </div>
+        
+        <div class="car-card">
+            <img src="https://s3.ecompletocarros.dev/images/lojas/182/veiculos/207560/veiculoInfoVeiculoImagesMobile/vehicle_image_1724873331_82d3f4f2a080f1cfb0c2d4301d504a16.jpeg" alt="Renault Duster 2015" class="img">
+            <div class="details">
+                <h3>Renault Duster 2015</h3>
+                <p>Apenas 65.000 km, 2015, Manual, Verde.</p>
+                <p class="price">R$ 52.000,00</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Termos de Serviço</a> |
+            <a href="#">Política de Privacidade</a> |
+            <a href="#">SAC</a>
+        </div>
+        <p>&copy; 2024 CarrosX - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
