@@ -129,40 +129,89 @@
             .input-field {
                 padding: 10px;
             }
+            .input-field {
+            width: 200px;
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        /* Estilos para os rótulos dos campos */
+        label {
+            display: inline-block;
+            width: 180px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        /* Estilo para o campo de carros, que é um tipo especial de input */
+        #carros {
+            width: 200px;
+        }
+
 
             .btn {
                 font-size: 16px;
                 padding: 10px;
             }
-            .input-field {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        }
+
+        /* Estilos do Modal */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 400px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .modal-content .message {
             font-size: 16px;
+            margin-bottom: 20px;
         }
 
-        .input-field:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
-        .btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: background-color 0.3s;
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
 
-        .btn:hover {
-            background-color: red;
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
+        .certo{
+           width: 200px;
         }
     </style>
+    
 </head>
 <body>
     <header> 
@@ -180,30 +229,104 @@
     <!-- Formulário de Pagamento -->
     <div class="container">
         <h2>Formulário de Pagamento</h2>
-        <form action="processar_pagamento.php" method="POST">
+        <form id="paymentForm" onsubmit="mostrarPopup(event)">
             <label for="nome">Nome Completo:</label>
-            <input type="text" id="nome" name="nome" class="input-field" required>
+            <input type="text" id="nome" name="nome" class="input-field" autocomplete="off" required>
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" class="input-field" placeholder="Ex: CompradorFiel@gmail.com" required>
+            <input type="email" id="email" name="email" class="input-field" placeholder="Ex: CompradorFiel@gmail.com" autocomplete="off" required>
 
             <label for="numero_cartao">Número do Cartão:</label>
-            <input type="text" id="numero_cartao" name="numero_cartao" class="input-field" placeholder="Ex 0000 0000 0000 0000" required>
+            <input type="text" id="numero_cartao" name="numero_cartao" class="input-field" placeholder="Ex 0000 0000 0000 0000" autocomplete="off" required>
 
             <label for="data_validade">Data de Validade (MM/AAAA):</label>
-            <input type="text" id="data_validade" name="data_validade" class="input-field" placeholder="Ex: 00/0000" required>
+            <input type="text" id="data_validade" name="data_validade" class="input-field" placeholder="Ex: 00/0000" autocomplete="off" required>
 
             <label for="codigo_seg">Código de Segurança (CVV):</label>
-            <input type="text" id="codigo_seg" name="codigo_seg" class="input-field" placeholder="000" required>
+            <input type="text" id="codigo_seg" name="codigo_seg" class="input-field" placeholder="000" autocomplete="off" required>
 
-            <label for="veiculo_escolhido">Veículo Escolhido:</label>
-            <input type="text" id="veiculo_escolhido" name="veiculo_escolhido" class="input-field" placeholder="Ex: Carro Modelo XYZ" required>
-            
-                <label for="valor">Valor a Pagar:</label>
-                <input type="text" id="valor" name="valor" class="input-field" placeholder="R$ 230.000,00" oninput="formatarValor(this)" required>
+            <form id="formulario">
+                <label for="carros">Selecione o carro de sua preferência:</label><br><br>
+                   <!-- Caixa de texto com sugestões de carros -->
+        <input 
+        type="text" 
+        id="carros" 
+        name="carros" 
+        list="carrosList" 
+        class="input-field"
+        placeholder="Selecione seu carro"
+        autocomplete="off"
+        required
+        
+                <!-- Caixa de seleção com várias opções de carros -->
+                <datalist id="carrosList">
+                    <option value="Audi Q3 - 2022">
+                    <option value="BMW X1 - 2023">
+                    <option value="Chevrolet Onix - 2024">
+                    <option value="Chevrolet Onix - 2010">
+                    <option value="Chevrolet S10 - 2010">
+                    <option value="Chevrolet Spin - 2023">
+                    <option value="Chevrolet Tracker - 2023">
+                    <option value="Chevrolet Tracker - 2015">
+                    <option value="Fiat Argo - 2022">
+                    <option value="Fiat Mobi - 2023">
+                    <option value="Fiat Palio - 2010">
+                    <option value="Fiat Pulse - 2022">
+                    <option value="Fiat Toro - 2023">
+                    <option value="Fiat Uno - 2022">
+                    <option value="Fiat Uno - 2015">
+                    <option value="Ford Fiesta - 2010">
+                    <option value="Ford Ka - 2021">
+                    <option value="Ford Ka - 2015">
+                    <option value="Ford Territory - 2022">
+                    <option value="Honda City - 2022">
+                    <option value="Honda Civic - 2022">
+                    <option value="Honda Civic - 2010">
+                    <option value="Honda HR-V - 2015">
+                    <option value="Honda WR-V - 2022">
+                    <option value="Hyundai Creta - 2015">
+                    <option value="Hyundai HB20 - 2021">
+                    <option value="Hyundai Tucson - 2010">
+                    <option value="Jeep Compass - 2023">
+                    <option value="Jeep Compass - 2010">
+                    <option value="Jeep Renegade - 2023">
+                    <option value="Jeep Renegade - 2015">
+                    <option value="Kia Seltos - 2022">
+                    <option value="Mitsubishi L200 Triton - 2023">
+                    <option value="Nissan Frontier - 2022">
+                    <option value="Nissan Sentra - 2015">
+                    <option value="Peugeot 3008 - 2023">
+                    <option value="Renault Duster - 2020">
+                    <option value="Renault Duster - 2015">
+                    <option value="Renault Kwid - 2020">
+                    <option value="Renault Sandero - 2010">
+                    <option value="Toyota Corolla - 2010">
+                    <option value="Toyota Etios - 2015">
+                    <option value="Toyota Hilux - 2022">
+                    <option value="Toyota SW4 - 2023">
+                    <option value="Volkswagen Gol - 2021">
+                    <option value="Volkswagen Gol - 2010">
+                    <option value="Volkswagen Nivus - 2022">
+                    <option value="Volkswagen Polo - 2015">
+                    <option value="Volkswagen Saveiro - 2022">
+                    <option value="Volkswagen Virtus - 2022">
+                </datalist><br><br>
+            </form>        
+            <label for="valor">Valor a Pagar:</label>
+            <input type="text" id="valor" name="valor" class="input-field" placeholder="R$ 230.000,00" autocomplete="off" oninput="formatarValor(this)" required>
 
             <button type="submit" class="btn">Pagar Agora</button>
         </form>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <img src="https://i.ibb.co/r7DfM6K/imagem-2024-11-17-012305625-removebg-preview.png" alt="Confirmação" class="certo">
+            <span class="close">&times;</span>
+            <h2>Em Validação</h2>
+            <p class="message">As informações foram enviadas ao vendedor. Sua solicitação de compra já está sendo avaliada. Entraremos em contato assim que o vendedor iniciar o processo de envio.</p>
+        </div>
     </div>
 
     <!-- Rodapé -->
@@ -215,21 +338,77 @@
         </div>
         <p>&copy; 2024 CarrosX - Todos os direitos reservados.</p>
     </footer>
-    <script>
-              window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const carro = urlParams.get('carro');
-            const valor = urlParams.get('valor');
 
-            document.getElementById('veiculo_escolhido').value = carro;
-            document.getElementById('valor').value = "R$ " + valor;
-        };
+    <script>
+          document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault();  // Previne o envio real do formulário
+
+            var select = document.getElementById("carros");
+            var selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
+            
+            alert("Carros selecionados: " + selectedOptions.join(", "));
+        });
+             function limparFormulario() {
+            var formulario = document.getElementById("meuFormulario");
+            
+            // Limpar todos os campos de entrada (inputs)
+            for (var i = 0; i < formulario.elements.length; i++) {
+                var campo = formulario.elements[i];
+                if (campo.type === "text" || campo.type === "email" || campo.type === "password" || campo.type === "textarea") {
+                    campo.value = "";  // Limpa o valor do campo
+                }
+            }
+
+            // Limpar o histórico de preenchimento (no navegador)
+            formulario.reset();
+        }
+         window.onload = function() {
+        
+        // Máscaras de entrada
+        Inputmask("9999 9999 9999 9999").mask(document.getElementById('numero_cartao'));
+        Inputmask("99/9999").mask(document.getElementById('data_validade'));
+        Inputmask("999").mask(document.getElementById('codigo_seg'));
+    };
+        function mostrarPopup(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Verifica se todos os campos estão preenchidos
+            const form = document.getElementById('paymentForm');
+            const inputs = form.querySelectorAll('input');
+            let formValid = true;
+            inputs.forEach(input => {
+                if (input.value === "") {
+                    formValid = false;
+                }
+            });
+
+            if (formValid) {
+                // Mostra o modal
+                document.getElementById('popupModal').style.display = 'block';
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        }
+
+        // Fechar o modal
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('popupModal').style.display = 'none';
+        }
+
+        // Fechar o modal se clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('popupModal')) {
+                document.getElementById('popupModal').style.display = 'none';
+            }
+        }
+
+        // Função para formatar o valor do pagamento
         function formatarValor(input) {
             let valor = input.value;
-            
+
             // Remove tudo que não for número
             valor = valor.replace(/\D/g, "");
-            
+
             // Adiciona o R$ no começo e formata como moeda
             valor = valor.replace(/(\d{2})$/g, ",$1");
             if (valor.length > 6) {
@@ -241,7 +420,7 @@
             if (valor.length > 12) {
                 valor = valor.replace(/(\d{3})(\d{3}\.\d{3}\.\d{3},\d{2}$)/, "$1.$2");
             }
-            
+
             // Coloca o valor formatado de volta
             input.value = "R$ " + valor;
         }
