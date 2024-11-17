@@ -102,7 +102,58 @@
             font-weight: bold;
             color: greenyellow; /* Ciano */
         }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
+        .popup-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .popup-content img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .popup-content h3 {
+            margin: 15px 0;
+        }
+
+        .popup-content p {
+            margin: 10px 0;
+        }
+        .buy-now-bnt{
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .popup .close-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
         /* Call to Action */
         .cta-section {
             background-color: black; /* Ciano */
@@ -233,96 +284,237 @@
     <!-- Conteúdo Principal -->
     <div class="main-content">
         <!-- Carros Exemplos -->
-        <div class="car-card">
-            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2023/04/1FLP4429.jpeg?quality=70&strip=info" alt="Carro 1" class="img">
+        <div class="car-card" onclick="showPopup('carPopupOnix2024')">
+            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2023/04/1FLP4429.jpeg?quality=70&strip=info" alt="Chevrolet Onix 2024" class="img">
             <div class="details">
                 <h3>Chevrolet Onix 2024</h3>
                 <p>Apenas 5.000 km, 2024, Automático, Prata.</p>
                 <p class="price">R$ 80.000,00</p>
             </div>
         </div>
+        
+        <!-- Popup para o Onix 2024 -->
+        <div class="popup" id="carPopupOnix2024">
+            <div class="popup-content">
+                <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2023/04/1FLP4429.jpeg?quality=70&strip=info" alt="Chevrolet Onix 2024">
+                <h3>Chevrolet Onix 2024</h3>
+                <p><strong>Vendedor:</strong> Lucas Martins</p>
+                <p><strong>Email:</strong> lucas.martins@email.com</p>
+                <p><strong>Informações do carro:</strong> 5.000 km, 2024, Automático, Prata</p>
+                <p class="price">R$ 80.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupOnix2024')">Fechar</button>
+            </div>
+        </div>        
 
-        <div class="car-card">
-            <img src="https://i.ytimg.com/vi/voMstuXBRsM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSTq-RhS_Gx8aCmijNYTWkoiM6RA" alt="Carro 2"  class="img">
+        <div class="car-card" onclick="showPopup('carPopupToro2023')">
+            <img src="https://i.ytimg.com/vi/voMstuXBRsM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSTq-RhS_Gx8aCmijNYTWkoiM6RA" alt="Fiat Toro 2023" class="img">
             <div class="details">
                 <h3>Fiat Toro 2023</h3>
                 <p>Apenas 10.000 km, 2023, Automático, Preto.</p>
                 <p class="price">R$ 120.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
-            <img src="https://s3.carro57.com.br/FC/7180/4283255_0_B_e9428a48c4.jpeg" alt="Carro 3" class="img">
+        
+        <!-- Popup para o Fiat Toro 2023 -->
+        <div class="popup" id="carPopupToro2023">
+            <div class="popup-content">
+                <img src="https://i.ytimg.com/vi/voMstuXBRsM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSTq-RhS_Gx8aCmijNYTWkoiM6RA" alt="Fiat Toro 2023">
+                <h3>Fiat Toro 2023</h3>
+                <p><strong>Vendedor:</strong> Roberto Silva</p>
+                <p><strong>Email:</strong> roberto.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 10.000 km, 2023, Automático, Preto</p>
+                <p class="price">R$ 120.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupToro2023')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupGol2021')">
+            <img src="https://s3.carro57.com.br/FC/7180/4283255_0_B_e9428a48c4.jpeg" alt="Volkswagen Gol 2021" class="img">
             <div class="details">
                 <h3>Volkswagen Gol 2021</h3>
                 <p>Apenas 30.000 km, 2021, Manual, Vermelho.</p>
                 <p class="price">R$ 50.000,00</p>
             </div>
         </div>
+        
+        <!-- Popup para o Volkswagen Gol 2021 -->
+        <div class="popup" id="carPopupGol2021">
+            <div class="popup-content">
+                <img src="https://s3.carro57.com.br/FC/7180/4283255_0_B_e9428a48c4.jpeg" alt="Volkswagen Gol 2021">
+                <h3>Volkswagen Gol 2021</h3>
+                <p><strong>Vendedor:</strong> Daniel Costa</p>
+                <p><strong>Email:</strong> daniel.costa@email.com</p>
+                <p><strong>Informações do carro:</strong> 30.000 km, 2021, Manual, Vermelho</p>
+                <p class="price">R$ 50.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupGol2021')">Fechar</button>
+            </div>
+        </div>        
 
-        <div class="car-card">
-            <img src="https://www.otempo.com.br/adobe/dynamicmedia/deliver/dm-aid--0fa7733d-9bee-43ce-a6d6-d269dbd5512f/autotempo-honda-civic-hibrido-ficou-r-15-mil-mais-caro-no-brasil-1708386463.jpg?preferwebp=true&quality=90" alt="Carro 4" class="img">
+        <div class="car-card" onclick="showPopup('carPopupCivic2022')">
+            <img src="https://www.otempo.com.br/adobe/dynamicmedia/deliver/dm-aid--0fa7733d-9bee-43ce-a6d6-d269dbd5512f/autotempo-honda-civic-hibrido-ficou-r-15-mil-mais-caro-no-brasil-1708386463.jpg?preferwebp=true&quality=90" alt="Honda Civic 2022" class="img">
             <div class="details">
                 <h3>Honda Civic 2022</h3>
                 <p>Apenas 15.000 km, 2022, Automático, Branco.</p>
                 <p class="price">R$ 150.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
-            <img src="https://ast.prd.karvi.com.ar/br_importer/spyne/ASST-br_importer-01J9KM8Z62XTW2VRG2DBJTSY1Z.jpg" alt="Carro 5" class="img">
+        
+        <!-- Popup para o Honda Civic 2022 -->
+        <div class="popup" id="carPopupCivic2022">
+            <div class="popup-content">
+                <img src="https://www.otempo.com.br/adobe/dynamicmedia/deliver/dm-aid--0fa7733d-9bee-43ce-a6d6-d269dbd5512f/autotempo-honda-civic-hibrido-ficou-r-15-mil-mais-caro-no-brasil-1708386463.jpg?preferwebp=true&quality=90" alt="Honda Civic 2022">
+                <h3>Honda Civic 2022</h3>
+                <p><strong>Vendedor:</strong> João Pereira</p>
+                <p><strong>Email:</strong> joao.pereira@email.com</p>
+                <p><strong>Informações do carro:</strong> 15.000 km, 2022, Automático, Branco</p>
+                <p class="price">R$ 150.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupCivic2022')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupHB2021')">
+            <img src="https://ast.prd.karvi.com.ar/br_importer/spyne/ASST-br_importer-01J9KM8Z62XTW2VRG2DBJTSY1Z.jpg" alt="Hyundai HB20 2021" class="img">
             <div class="details">
                 <h3>Hyundai HB20 2021</h3>
                 <p>Apenas 20.000 km, 2021, Manual, Azul.</p>
                 <p class="price">R$ 55.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
-            <img src="https://i0.statig.com.br/bancodeimagens/imgalta/6z/pj/xj/6zpjxjonhmsifu90cmp5gn3pt.jpg" alt="Carro 6" class="img">
+        
+        <!-- Popup para o Hyundai HB20 2021 -->
+        <div class="popup" id="carPopupHB2021">
+            <div class="popup-content">
+                <img src="https://ast.prd.karvi.com.ar/br_importer/spyne/ASST-br_importer-01J9KM8Z62XTW2VRG2DBJTSY1Z.jpg" alt="Hyundai HB20 2021">
+                <h3>Hyundai HB20 2021</h3>
+                <p><strong>Vendedor:</strong> Fernanda Lima</p>
+                <p><strong>Email:</strong> fernanda.lima@email.com</p>
+                <p><strong>Informações do carro:</strong> 20.000 km, 2021, Manual, Azul</p>
+                <p class="price">R$ 55.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupHB2021')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupKwid2020')">
+            <img src="https://i0.statig.com.br/bancodeimagens/imgalta/6z/pj/xj/6zpjxjonhmsifu90cmp5gn3pt.jpg" alt="Renault Kwid 2020" class="img">
             <div class="details">
                 <h3>Renault Kwid 2020</h3>
                 <p>Apenas 25.000 km, 2020, Manual, Laranja.</p>
                 <p class="price">R$ 40.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
-            <img src="https://cdn.esbrasil.com.br/wp-content/uploads/2021/04/29114610/jeep_compass_s_459.jpg" alt="Carro 7" class="img">
+        
+        <!-- Popup para o Renault Kwid 2020 -->
+        <div class="popup" id="carPopupKwid2020">
+            <div class="popup-content">
+                <img src="https://i0.statig.com.br/bancodeimagens/imgalta/6z/pj/xj/6zpjxjonhmsifu90cmp5gn3pt.jpg" alt="Renault Kwid 2020">
+                <h3>Renault Kwid 2020</h3>
+                <p><strong>Vendedor:</strong> Lucas Pereira</p>
+                <p><strong>Email:</strong> lucas.pereira@email.com</p>
+                <p><strong>Informações do carro:</strong> 25.000 km, 2020, Manual, Laranja</p>
+                <p class="price">R$ 40.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupKwid2020')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupCompass2023')">
+            <img src="https://cdn.esbrasil.com.br/wp-content/uploads/2021/04/29114610/jeep_compass_s_459.jpg" alt="Jeep Compass 2023" class="img">
             <div class="details">
                 <h3>Jeep Compass 2023</h3>
                 <p>Apenas 8.000 km, 2023, Automático, Verde.</p>
                 <p class="price">R$ 180.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
-            <img src="https://s2-autoesporte.glbimg.com/qlEyLX1-XyAc84DYiLNwDGgAQXY=/0x0:1600x1060/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/i/A/rXpAQpTxKLsxjrJVOCXA/dsc-9646.jpg" alt="Carro 8" class="img">
+        
+        <!-- Popup para o Jeep Compass 2023 -->
+        <div class="popup" id="carPopupCompass2023">
+            <div class="popup-content">
+                <img src="https://cdn.esbrasil.com.br/wp-content/uploads/2021/04/29114610/jeep_compass_s_459.jpg" alt="Jeep Compass 2023">
+                <h3>Jeep Compass 2023</h3>
+                <p><strong>Vendedor:</strong> Mariana Silva</p>
+                <p><strong>Email:</strong> mariana.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 8.000 km, 2023, Automático, Verde</p>
+                <p class="price">R$ 180.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupCompass2023')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupArgo2022')">
+            <img src="https://s2-autoesporte.glbimg.com/qlEyLX1-XyAc84DYiLNwDGgAQXY=/0x0:1600x1060/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/i/A/rXpAQpTxKLsxjrJVOCXA/dsc-9646.jpg" alt="Fiat Argo 2022" class="img">
             <div class="details">
                 <h3>Fiat Argo 2022</h3>
                 <p>Apenas 12.000 km, 2022, Manual, Cinza.</p>
                 <p class="price">R$ 65.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
-            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2020/07/Ka-e-EcoSport-FreeStyle-4-e1595451717700.jpg?quality=70&strip=info" alt="Carro 9" class="img">
+        
+        <!-- Popup para o Fiat Argo 2022 -->
+        <div class="popup" id="carPopupArgo2022">
+            <div class="popup-content">
+                <img src="https://s2-autoesporte.glbimg.com/qlEyLX1-XyAc84DYiLNwDGgAQXY=/0x0:1600x1060/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/i/A/rXpAQpTxKLsxjrJVOCXA/dsc-9646.jpg" alt="Fiat Argo 2022">
+                <h3>Fiat Argo 2022</h3>
+                <p><strong>Vendedor:</strong> João Ferreira</p>
+                <p><strong>Email:</strong> joao.ferreira@email.com</p>
+                <p><strong>Informações do carro:</strong> 12.000 km, 2022, Manual, Cinza</p>
+                <p class="price">R$ 65.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupArgo2022')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupKa2021')">
+            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2020/07/Ka-e-EcoSport-FreeStyle-4-e1595451717700.jpg?quality=70&strip=info" alt="Ford Ka 2021" class="img">
             <div class="details">
                 <h3>Ford Ka 2021</h3>
                 <p>Apenas 30.000 km, 2021, Manual, Branco.</p>
                 <p class="price">R$ 48.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
-            <img src="https://www.chevrolet.com.br/content/dam/chevrolet/south-america/brazil/portuguese/index/crossovers-and-suvs/2023-tracker/drp-2024/gallery/gallery-03.jpg?imwidth=650" alt="Carro 10" class="img">
+        
+        <!-- Popup para o Ford Ka 2021 -->
+        <div class="popup" id="carPopupKa2021">
+            <div class="popup-content">
+                <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2020/07/Ka-e-EcoSport-FreeStyle-4-e1595451717700.jpg?quality=70&strip=info" alt="Ford Ka 2021">
+                <h3>Ford Ka 2021</h3>
+                <p><strong>Vendedor:</strong> Carla Souza</p>
+                <p><strong>Email:</strong> carla.souza@email.com</p>
+                <p><strong>Informações do carro:</strong> 30.000 km, 2021, Manual, Branco</p>
+                <p class="price">R$ 48.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupKa2021')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupTracker2023')">
+            <img src="https://www.chevrolet.com.br/content/dam/chevrolet/south-america/brazil/portuguese/index/crossovers-and-suvs/2023-tracker/drp-2024/gallery/gallery-03.jpg?imwidth=650" alt="Chevrolet Tracker 2023" class="img">
             <div class="details">
                 <h3>Chevrolet Tracker 2023</h3>
                 <p>Apenas 7.000 km, 2023, Automático, Prata.</p>
                 <p class="price">R$ 140.000,00</p>
             </div>
         </div>
-        <div class="car-card">
+        
+        <!-- Popup para o Chevrolet Tracker 2023 -->
+        <div class="popup" id="carPopupTracker2023">
+            <div class="popup-content">
+                <img src="https://www.chevrolet.com.br/content/dam/chevrolet/south-america/brazil/portuguese/index/crossovers-and-suvs/2023-tracker/drp-2024/gallery/gallery-03.jpg?imwidth=650" alt="Chevrolet Tracker 2023">
+                <h3>Chevrolet Tracker 2023</h3>
+                <p><strong>Vendedor:</strong> Lucas Silva</p>
+                <p><strong>Email:</strong> lucas.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 7.000 km, 2023, Automático, Prata</p>
+                <p class="price">R$ 140.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupTracker2023')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupMobi2023')">
             <img src="https://cdn.motor1.com/images/mgl/AkBprL/s1/fiat-mobi-easy.webp" alt="Fiat Mobi 2023" class="img">
             <div class="details">
                 <h3>Fiat Mobi 2023</h3>
@@ -331,12 +523,40 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Fiat Mobi 2023 -->
+        <div class="popup" id="carPopupMobi2023">
+            <div class="popup-content">
+                <img src="https://cdn.motor1.com/images/mgl/AkBprL/s1/fiat-mobi-easy.webp" alt="Fiat Mobi 2023">
+                <h3>Fiat Mobi 2023</h3>
+                <p><strong>Vendedor:</strong> Mariana Costa</p>
+                <p><strong>Email:</strong> mariana.costa@email.com</p>
+                <p><strong>Informações do carro:</strong> 5.000 km, 2023, Manual, Vermelho</p>
+                <p class="price">R$ 45.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupMobi2023')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupDuster2023')">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC9epmfBKCZMEWlJdDLujbwzeUSC35Aq5mLhF-wi5zmnQ3Q1ZfWC-WdzSyvQWVkz8pDorvZAo6bH-KFsoRpJyeb5QtcoUkk4zH5E6ofgccMzH5YiFbM58g3PosSzt1nQMK8OvruYVu0ko4HGmJN7EfpbmCa-mLYbQqe0QC6A46b3pDsYAhYI3kKHhK/w640-h476/20220604_162538.jpg" alt="Renault Duster 2023" class="img">
             <div class="details">
                 <h3>Renault Duster 2023</h3>
                 <p>Apenas 10.000 km, 2023, Manual, Cinza.</p>
                 <p class="price">R$ 115.000,00</p>
+            </div>
+        </div>
+        
+        <!-- Popup para o Renault Duster 2023 -->
+        <div class="popup" id="carPopupDuster2023">
+            <div class="popup-content">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC9epmfBKCZMEWlJdDLujbwzeUSC35Aq5mLhF-wi5zmnQ3Q1ZfWC-WdzSyvQWVkz8pDorvZAo6bH-KFsoRpJyeb5QtcoUkk4zH5E6ofgccMzH5YiFbM58g3PosSzt1nQMK8OvruYVu0ko4HGmJN7EfpbmCa-mLYbQqe0QC6A46b3pDsYAhYI3kKHhK/w640-h476/20220604_162538.jpg" alt="Renault Duster 2023">
+                <h3>Renault Duster 2023</h3>
+                <p><strong>Vendedor:</strong> João Silva</p>
+                <p><strong>Email:</strong> joao.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 10.000 km, 2023, Manual, Cinza</p>
+                <p class="price">R$ 115.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupDuster2023')">Fechar</button>
             </div>
         </div>
         
@@ -369,6 +589,28 @@
             const navbar = document.querySelector('.navbar');
             navbar.classList.toggle('active');
         }
+        function showPopup(popupId) {
+    // Esconde todos os popups
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach(popup => popup.style.display = 'none');
+    
+    // Exibe o popup do carro clicado
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.style.display = 'flex';
+    }
+}
+
+function closePopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.style.display = 'none';
+    }
+        }
+        document.querySelector('.buy-now-bnt').addEventListener('click', function() {
+    window.location.href = 'https://carrosbrasil.netlify.app/pagamentos';
+});
+
     </script>
 
 </body>
