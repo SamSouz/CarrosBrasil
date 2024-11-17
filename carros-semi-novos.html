@@ -101,6 +101,58 @@
             font-weight: bold;
             color: greenyellow; /* Ciano */
         }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .popup-content img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .popup-content h3 {
+            margin: 15px 0;
+        }
+
+        .popup-content p {
+            margin: 10px 0;
+        }
+        .buy-now-bnt {
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .popup .close-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
 
         /* Call to Action */
         .cta-section {
@@ -211,7 +263,7 @@
     </div>
 
     <div class="main-content">
-        <div class="car-card" onclick="window.location.href='https://carrosbrasil.netlify.app/pagamentos?carro=Volkswagen%20Gol%202010&valor=30000'">
+        <div class="car-card" onclick="showPopup('carPopupGol')">
             <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/423789244/transform/fl_progressive,f_webp,q_70,w_600" alt="Volkswagen Gol 2010" class="img">
             <div class="details">
                 <h3>Volkswagen Gol 2010</h3>
@@ -219,87 +271,230 @@
                 <p class="price">R$ 30.000,00</p>
             </div>
         </div>
-            <div class="car-card">
-                <img src="https://i.pinimg.com/736x/46/25/f4/4625f460c4f17248e3459454eaf5a4e7.jpg" alt="Honda Civic 2010" class="img">
-                <div class="details">
-                    <h3>Honda Civic 2010</h3>
-                    <p>Apenas 95.000 km, 2010, Automático, Prata.</p>
-                    <p class="price">R$ 45.000,00</p>
-                </div>
+    
+        <!-- Popup para o Gol -->
+        <div class="popup" id="carPopupGol">
+            <div class="popup-content">
+                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/423789244/transform/fl_progressive,f_webp,q_70,w_600" alt="Volkswagen Gol 2010">
+                <h3>Volkswagen Gol 2010</h3>
+                <p><strong>Vendedor:</strong> João Silva</p>
+                <p><strong>Email:</strong> joao.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 80.000 km, 2010, Manual, Preto</p>
+                <p class="price">R$ 30.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupGol')">Fechar</button>
             </div>
+        </div>
+        <div class="car-card" onclick="showPopup('carPopupCivic')">
+            <img src="https://i.pinimg.com/736x/46/25/f4/4625f460c4f17248e3459454eaf5a4e7.jpg" alt="Honda Civic 2010" class="img">
+            <div class="details">
+                <h3>Honda Civic 2010</h3>
+                <p>Apenas 95.000 km, 2010, Automático, Prata.</p>
+                <p class="price">R$ 45.000,00</p>
+            </div>
+        </div>
+    
+        <!-- Popup para o Civic -->
+        <div class="popup" id="carPopupCivic">
+            <div class="popup-content">
+                <img src="https://i.pinimg.com/736x/46/25/f4/4625f460c4f17248e3459454eaf5a4e7.jpg" alt="Honda Civic 2010">
+                <h3>Honda Civic 2010</h3>
+                <p><strong>Vendedor:</strong> Carlos Almeida</p>
+                <p><strong>Email:</strong> carlos.almeida@email.com</p>
+                <p><strong>Informações do carro:</strong> 95.000 km, 2010, Automático, Prata</p>
+                <p class="price">R$ 45.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupCivic')">Fechar</button>
+            </div>
+        </div>
+
+        <div class="car-card" onclick="showPopup('carPopupOnix')">
+            <img src="https://www.chavesnamao.com.br/imn/0358x0250/N/veiculos/343033/7185968/chevrolet-onix-em-guarulhos-sp-fbc4ba57210-00.jpg" alt="Chevrolet Onix 2010" class="img">
+            <div class="details">
+                <h3>Chevrolet Onix 2010</h3>
+                <p>Apenas 75.000 km, 2010, Manual, Branco.</p>
+                <p class="price">R$ 28.000,00</p>
+            </div>
+        </div>
+        
+        <!-- Popup para o Onix -->
+        <div class="popup" id="carPopupOnix">
+            <div class="popup-content">
+                <img src="https://www.chavesnamao.com.br/imn/0358x0250/N/veiculos/343033/7185968/chevrolet-onix-em-guarulhos-sp-fbc4ba57210-00.jpg" alt="Chevrolet Onix 2010">
+                <h3>Chevrolet Onix 2010</h3>
+                <p><strong>Vendedor:</strong> Paula Oliveira</p>
+                <p><strong>Email:</strong> paula.oliveira@email.com</p>
+                <p><strong>Informações do carro:</strong> 75.000 km, 2010, Manual, Branco</p>
+                <p class="price">R$ 28.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupOnix')">Fechar</button>
+            </div>
+        </div>
+        
+    
+        <div class="car-card" onclick="showPopup('carPopupPalio')">
+            <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/401876542/transform/fl_progressive,f_webp,q_70,w_600" alt="Fiat Palio 2010" class="img">
+            <div class="details">
+                <h3>Fiat Palio 2010</h3>
+                <p>Apenas 85.000 km, 2010, Manual, Vermelho.</p>
+                <p class="price">R$ 25.000,00</p>
+            </div>
+        </div>
+        
+        <!-- Popup para o Palio -->
+        <div class="popup" id="carPopupPalio">
+            <div class="popup-content">
+                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/401876542/transform/fl_progressive,f_webp,q_70,w_600" alt="Fiat Palio 2010">
+                <h3>Fiat Palio 2010</h3>
+                <p><strong>Vendedor:</strong> João Souza</p>
+                <p><strong>Email:</strong> joao.souza@email.com</p>
+                <p><strong>Informações do carro:</strong> 85.000 km, 2010, Manual, Vermelho</p>
+                <p class="price">R$ 25.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupPalio')">Fechar</button>
+            </div>
+        </div>
+        
             
-            <div class="car-card">
-                <img src="https://www.chavesnamao.com.br/imn/0358x0250/N/veiculos/343033/7185968/chevrolet-onix-em-guarulhos-sp-fbc4ba57210-00.jpg" alt="Chevrolet Onix 2010" class="img">
-                <div class="details">
-                    <h3>Chevrolet Onix 2010</h3>
-                    <p>Apenas 75.000 km, 2010, Manual, Branco.</p>
-                    <p class="price">R$ 28.000,00</p>
-                </div>
+        <div class="car-card" onclick="showPopup('carPopupCorolla')">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjESTicAPu3i57ACFvBt5AbKCKf5tC2HfnshIFBQH2fhamr4y7x3FmFc_5Wp7fvaSM4h9FpGtoficOHgr60P08ijAax8WHYBe5f1v4tKdikcFDnTB1ERZ8Bx5jrifxq-Q4-ZSsrD2Fmsds/s1600/Toyota-Corolla-2011+%252810%2529.jpg" alt="Toyota Corolla 2010" class="img">
+            <div class="details">
+                <h3>Toyota Corolla 2010</h3>
+                <p>Apenas 90.000 km, 2010, Automático, Cinza.</p>
+                <p class="price">R$ 50.000,00</p>
             </div>
+        </div>
+        
+        <!-- Popup para o Corolla -->
+        <div class="popup" id="carPopupCorolla">
+            <div class="popup-content">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjESTicAPu3i57ACFvBt5AbKCKf5tC2HfnshIFBQH2fhamr4y7x3FmFc_5Wp7fvaSM4h9FpGtoficOHgr60P08ijAax8WHYBe5f1v4tKdikcFDnTB1ERZ8Bx5jrifxq-Q4-ZSsrD2Fmsds/s1600/Toyota-Corolla-2011+%252810%2529.jpg" alt="Toyota Corolla 2010">
+                <h3>Toyota Corolla 2010</h3>
+                <p><strong>Vendedor:</strong> Mariana Costa</p>
+                <p><strong>Email:</strong> mariana.costa@email.com</p>
+                <p><strong>Informações do carro:</strong> 90.000 km, 2010, Automático, Cinza</p>
+                <p class="price">R$ 50.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupCorolla')">Fechar</button>
+            </div>
+        </div>        
             
-            <div class="car-card">
-                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/401876542/transform/fl_progressive,f_webp,q_70,w_600" alt="Fiat Palio 2010" class="img">
-                <div class="details">
-                    <h3>Fiat Palio 2010</h3>
-                    <p>Apenas 85.000 km, 2010, Manual, Vermelho.</p>
-                    <p class="price">R$ 25.000,00</p>
-                </div>
+        <div class="car-card" onclick="showPopup('carPopupFiesta')">
+            <img src="https://cro.i.uol.com.br/carros/2010/04/22/ford-fiesta-2011-hatch-1271983068219_560x400.jpg" alt="Ford Fiesta 2010" class="img">
+            <div class="details">
+                <h3>Ford Fiesta 2010</h3>
+                <p>Apenas 70.000 km, 2010, Manual, Azul.</p>
+                <p class="price">R$ 22.000,00</p>
             </div>
+        </div>
+        
+        <!-- Popup para o Fiesta -->
+        <div class="popup" id="carPopupFiesta">
+            <div class="popup-content">
+                <img src="https://cro.i.uol.com.br/carros/2010/04/22/ford-fiesta-2011-hatch-1271983068219_560x400.jpg" alt="Ford Fiesta 2010">
+                <h3>Ford Fiesta 2010</h3>
+                <p><strong>Vendedor:</strong> Lucas Pereira</p>
+                <p><strong>Email:</strong> lucas.pereira@email.com</p>
+                <p><strong>Informações do carro:</strong> 70.000 km, 2010, Manual, Azul</p>
+                <p class="price">R$ 22.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupFiesta')">Fechar</button>
+            </div>
+        </div>
             
-            <div class="car-card">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjESTicAPu3i57ACFvBt5AbKCKf5tC2HfnshIFBQH2fhamr4y7x3FmFc_5Wp7fvaSM4h9FpGtoficOHgr60P08ijAax8WHYBe5f1v4tKdikcFDnTB1ERZ8Bx5jrifxq-Q4-ZSsrD2Fmsds/s1600/Toyota-Corolla-2011+%252810%2529.jpg" alt="Toyota Corolla 2010" class="img">
-                <div class="details">
-                    <h3>Toyota Corolla 2010</h3>
-                    <p>Apenas 90.000 km, 2010, Automático, Cinza.</p>
-                    <p class="price">R$ 50.000,00</p>
-                </div>
+        <div class="car-card" onclick="showPopup('carPopupSandero')">
+            <img src="https://www.chavesnamao.com.br/imn/0640X0480/N/veiculos/254951/6512903/renault-sandero-1-0-authentique-16v-4p_f865cbe6115.jpg" alt="Renault Sandero 2010" class="img">
+            <div class="details">
+                <h3>Renault Sandero 2010</h3>
+                <p>Apenas 80.000 km, 2010, Manual, Branco.</p>
+                <p class="price">R$ 23.000,00</p>
             </div>
-            
-            <div class="car-card">
-                <img src="https://cro.i.uol.com.br/carros/2010/04/22/ford-fiesta-2011-hatch-1271983068219_560x400.jpg" alt="Ford Fiesta 2010" class="img">
-                <div class="details">
-                    <h3>Ford Fiesta 2010</h3>
-                    <p>Apenas 70.000 km, 2010, Manual, Azul.</p>
-                    <p class="price">R$ 22.000,00</p>
-                </div>
+        </div>
+        
+        <!-- Popup para o Sandero -->
+        <div class="popup" id="carPopupSandero">
+            <div class="popup-content">
+                <img src="https://www.chavesnamao.com.br/imn/0640X0480/N/veiculos/254951/6512903/renault-sandero-1-0-authentique-16v-4p_f865cbe6115.jpg" alt="Renault Sandero 2010">
+                <h3>Renault Sandero 2010</h3>
+                <p><strong>Vendedor:</strong> Fernanda Oliveira</p>
+                <p><strong>Email:</strong> fernanda.oliveira@email.com</p>
+                <p><strong>Informações do carro:</strong> 80.000 km, 2010, Manual, Branco</p>
+                <p class="price">R$ 23.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupSandero')">Fechar</button>
             </div>
-            
-            <div class="car-card">
-                <img src="https://www.chavesnamao.com.br/imn/0640X0480/N/veiculos/254951/6512903/renault-sandero-1-0-authentique-16v-4p_f865cbe6115.jpg" alt="Renault Sandero 2010" class="img">
-                <div class="details">
-                    <h3>Renault Sandero 2010</h3>
-                    <p>Apenas 80.000 km, 2010, Manual, Branco.</p>
-                    <p class="price">R$ 23.000,00</p>
-                </div>
+        </div>
+    
+        <div class="car-card" onclick="showPopup('carPopupCompass')">
+            <img src="https://uploads.vrum.com.br/2023/08/eeff3e32-jeep-compass-modelo-2011-prata-de-frente-estatico-no-asfalto.jpg" alt="Jeep Compass 2010" class="img">
+            <div class="details">
+                <h3>Jeep Compass 2010</h3>
+                <p>Apenas 110.000 km, 2010, Automático, Prata.</p>
+                <p class="price">R$ 55.000,00</p>
             </div>
-            
-            <div class="car-card">
-                <img src="https://uploads.vrum.com.br/2023/08/eeff3e32-jeep-compass-modelo-2011-prata-de-frente-estatico-no-asfalto.jpg" alt="Jeep Compass 2010" class="img">
-                <div class="details">
-                    <h3>Jeep Compass 2010</h3>
-                    <p>Apenas 110.000 km, 2010, Automático, Prata.</p>
-                    <p class="price">R$ 55.000,00</p>
-                </div>
+        </div>
+        
+        <!-- Popup para o Compass -->
+        <div class="popup" id="carPopupCompass">
+            <div class="popup-content">
+                <img src="https://uploads.vrum.com.br/2023/08/eeff3e32-jeep-compass-modelo-2011-prata-de-frente-estatico-no-asfalto.jpg" alt="Jeep Compass 2010">
+                <h3>Jeep Compass 2010</h3>
+                <p><strong>Vendedor:</strong> Rodrigo Silva</p>
+                <p><strong>Email:</strong> rodrigo.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 110.000 km, 2010, Automático, Prata</p>
+                <p class="price">R$ 55.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupCompass')">Fechar</button>
             </div>
-            
-            <div class="car-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7vDsV1enFYluh6O49Qy5hNDnjajfvx4SJqw&s" alt="Chevrolet S10 2010" class="img">
-                <div class="details">
-                    <h3>Chevrolet S10 2010</h3>
-                    <p>Apenas 100.000 km, 2010, Manual, Preto.</p>
-                    <p class="price">R$ 47.000,00</p>
-                </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupS10')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7vDsV1enFYluh6O49Qy5hNDnjajfvx4SJqw&s" alt="Chevrolet S10 2010" class="img">
+            <div class="details">
+                <h3>Chevrolet S10 2010</h3>
+                <p>Apenas 100.000 km, 2010, Manual, Preto.</p>
+                <p class="price">R$ 47.000,00</p>
             </div>
-            
-            <div class="car-card">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnVeVFZogpcIju08ufEL84tZHwQowvZoA70OTdHevCeEyyVPTVdfUK7gD3OD0zmZy4MaPwX2Qemkhy3nZMMfJegUj6e2IV7tYY0vOkuFI8lX_bKcwSrpOLo-vIJ_BceCegLYyaoqxVxUEa/" alt="Hyundai Tucson 2010" class="img">
-                <div class="details">
-                    <h3>Hyundai Tucson 2010</h3>
-                    <p>Apenas 95.000 km, 2010, Automático, Vermelho.</p>
-                    <p class="price">R$ 42.000,00</p>
-                </div>
+        </div>
+        
+        <!-- Popup para o S10 -->
+        <div class="popup" id="carPopupS10">
+            <div class="popup-content">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7vDsV1enFYluh6O49Qy5hNDnjajfvx4SJqw&s" alt="Chevrolet S10 2010">
+                <h3>Chevrolet S10 2010</h3>
+                <p><strong>Vendedor:</strong> Thiago Martins</p>
+                <p><strong>Email:</strong> thiago.martins@email.com</p>
+                <p><strong>Informações do carro:</strong> 100.000 km, 2010, Manual, Preto</p>
+                <p class="price">R$ 47.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupS10')">Fechar</button>
             </div>
-            <div class="car-card">
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupTucson')">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnVeVFZogpcIju08ufEL84tZHwQowvZoA70OTdHevCeEyyVPTVdfUK7gD3OD0zmZy4MaPwX2Qemkhy3nZMMfJegUj6e2IV7tYY0vOkuFI8lX_bKcwSrpOLo-vIJ_BceCegLYyaoqxVxUEa/" alt="Hyundai Tucson 2010" class="img">
+            <div class="details">
+                <h3>Hyundai Tucson 2010</h3>
+                <p>Apenas 95.000 km, 2010, Automático, Vermelho.</p>
+                <p class="price">R$ 42.000,00</p>
+            </div>
+        </div>
+        
+        <!-- Popup para o Tucson -->
+        <div class="popup" id="carPopupTucson">
+            <div class="popup-content">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnVeVFZogpcIju08ufEL84tZHwQowvZoA70OTdHevCeEyyVPTVdfUK7gD3OD0zmZy4MaPwX2Qemkhy3nZMMfJegUj6e2IV7tYY0vOkuFI8lX_bKcwSrpOLo-vIJ_BceCegLYyaoqxVxUEa/" alt="Hyundai Tucson 2010">
+                <h3>Hyundai Tucson 2010</h3>
+                <p><strong>Vendedor:</strong> Ana Costa</p>
+                <p><strong>Email:</strong> ana.costa@email.com</p>
+                <p><strong>Informações do carro:</strong> 95.000 km, 2010, Automático, Vermelho</p>
+                <p class="price">R$ 42.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupTucson')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupPolo')">
             <img src="https://f7432d8eadcf865aa9d9-9c672a3a4ecaaacdf2fee3b3e6fd2716.ssl.cf3.rackcdn.com/C1680/U2252/IMG_18137-large.jpg" alt="Volkswagen Polo 2015" class="img">
             <div class="details">
                 <h3>Volkswagen Polo 2015</h3>
@@ -308,7 +503,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Polo -->
+        <div class="popup" id="carPopupPolo">
+            <div class="popup-content">
+                <img src="https://f7432d8eadcf865aa9d9-9c672a3a4ecaaacdf2fee3b3e6fd2716.ssl.cf3.rackcdn.com/C1680/U2252/IMG_18137-large.jpg" alt="Volkswagen Polo 2015">
+                <h3>Volkswagen Polo 2015</h3>
+                <p><strong>Vendedor:</strong> Carlos Henrique</p>
+                <p><strong>Email:</strong> carlos.henrique@email.com</p>
+                <p><strong>Informações do carro:</strong> 50.000 km, 2015, Manual, Preto</p>
+                <p class="price">R$ 38.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupPolo')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupHRV')">
             <img src="https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/caradvice/private/1499f88522cb499c4fc2669f98f8f282" alt="Honda HR-V 2015" class="img">
             <div class="details">
                 <h3>Honda HR-V 2015</h3>
@@ -317,7 +526,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o HR-V -->
+        <div class="popup" id="carPopupHRV">
+            <div class="popup-content">
+                <img src="https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/caradvice/private/1499f88522cb499c4fc2669f98f8f282" alt="Honda HR-V 2015">
+                <h3>Honda HR-V 2015</h3>
+                <p><strong>Vendedor:</strong> Ricardo Alves</p>
+                <p><strong>Email:</strong> ricardo.alves@email.com</p>
+                <p><strong>Informações do carro:</strong> 60.000 km, 2015, Automático, Branco</p>
+                <p class="price">R$ 68.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupHRV')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupTracker')">
             <img src="https://carango.com.br/f.php?w=810&h=620&cc=0&zc=1&src=https://carango.nyc3.digitaloceanspaces.com/images/veiculos/2023/01/chevrolet-tracker-2015-1-4-ltz-4p-flex-automatico-flex-111464-dhqj8a.jpg" alt="Chevrolet Tracker 2015" class="img">
             <div class="details">
                 <h3>Chevrolet Tracker 2015</h3>
@@ -326,7 +549,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Tracker -->
+        <div class="popup" id="carPopupTracker">
+            <div class="popup-content">
+                <img src="https://carango.com.br/f.php?w=810&h=620&cc=0&zc=1&src=https://carango.nyc3.digitaloceanspaces.com/images/veiculos/2023/01/chevrolet-tracker-2015-1-4-ltz-4p-flex-automatico-flex-111464-dhqj8a.jpg" alt="Chevrolet Tracker 2015">
+                <h3>Chevrolet Tracker 2015</h3>
+                <p><strong>Vendedor:</strong> Marcos Lima</p>
+                <p><strong>Email:</strong> marcos.lima@email.com</p>
+                <p><strong>Informações do carro:</strong> 55.000 km, 2015, Automático, Prata</p>
+                <p class="price">R$ 72.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupTracker')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupUno')">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS5_9zvq42lnNy3VnnWd_Yz8-pRsY-RvGXxRA8o3zwfluuSqn91vxNdZkyE395E-BlpL_hLGh0qUSJrQr3WRHF8ObYiepQBaPHm-Vqs4VPePZUWHqBDoGdTVayFnJhRNR7xWhJrxFggJM/s1600/Nov-Uno-Way-2015+(1).jpg" alt="Fiat Uno 2015" class="img">
             <div class="details">
                 <h3>Fiat Uno 2015</h3>
@@ -335,7 +572,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Uno -->
+        <div class="popup" id="carPopupUno">
+            <div class="popup-content">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS5_9zvq42lnNy3VnnWd_Yz8-pRsY-RvGXxRA8o3zwfluuSqn91vxNdZkyE395E-BlpL_hLGh0qUSJrQr3WRHF8ObYiepQBaPHm-Vqs4VPePZUWHqBDoGdTVayFnJhRNR7xWhJrxFggJM/s1600/Nov-Uno-Way-2015+(1).jpg" alt="Fiat Uno 2015">
+                <h3>Fiat Uno 2015</h3>
+                <p><strong>Vendedor:</strong> João Silva</p>
+                <p><strong>Email:</strong> joao.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 40.000 km, 2015, Manual, Vermelho</p>
+                <p class="price">R$ 25.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupUno')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupEtios')">
             <img src="https://s3.ecompletocarros.dev/images/lojas/120/veiculos/48051/veiculoInfoVeiculoImagesMobile/vehicle_image_1608315785_0b09d75b2f1ed24e76e20d71bd20010a.jpeg" alt="Toyota Etios 2015" class="img">
             <div class="details">
                 <h3>Toyota Etios 2015</h3>
@@ -344,7 +595,22 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Etios -->
+        <div class="popup" id="carPopupEtios">
+            <div class="popup-content">
+                <img src="https://s3.ecompletocarros.dev/images/lojas/120/veiculos/48051/veiculoInfoVeiculoImagesMobile/vehicle_image_1608315785_0b09d75b2f1ed24e76e20d71bd20010a.jpeg" alt="Toyota Etios 2015">
+                <h3>Toyota Etios 2015</h3>
+                <p><strong>Vendedor:</strong> Lucas Pereira</p>
+                <p><strong>Email:</strong> lucas.pereira@email.com</p>
+                <p><strong>Informações do carro:</strong> 45.000 km, 2015, Manual, Azul</p>
+                <p class="price">R$ 30.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupEtios')">Fechar</button>
+            </div>
+        </div>
+        
+        
+        <div class="car-card" onclick="showPopup('carPopupCreta')">
             <img src="https://www.chavesnamao.com.br/imn/0358x0250/N/veiculos/78585/7108502/hyundai-creta-em-belo-horizonte-mg-7a6f2811.jpg" alt="Hyundai Creta 2015" class="img">
             <div class="details">
                 <h3>Hyundai Creta 2015</h3>
@@ -353,7 +619,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Creta -->
+        <div class="popup" id="carPopupCreta">
+            <div class="popup-content">
+                <img src="https://www.chavesnamao.com.br/imn/0358x0250/N/veiculos/78585/7108502/hyundai-creta-em-belo-horizonte-mg-7a6f2811.jpg" alt="Hyundai Creta 2015">
+                <h3>Hyundai Creta 2015</h3>
+                <p><strong>Vendedor:</strong> Gabriela Martins</p>
+                <p><strong>Email:</strong> gabriela.martins@email.com</p>
+                <p><strong>Informações do carro:</strong> 50.000 km, 2015, Automático, Branco</p>
+                <p class="price">R$ 80.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupCreta')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupSentra')">
             <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/408481862/transform/fl_progressive,f_webp,q_70,w_600" alt="Nissan Sentra 2015" class="img">
             <div class="details">
                 <h3>Nissan Sentra 2015</h3>
@@ -362,7 +642,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Sentra -->
+        <div class="popup" id="carPopupSentra">
+            <div class="popup-content">
+                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/408481862/transform/fl_progressive,f_webp,q_70,w_600" alt="Nissan Sentra 2015">
+                <h3>Nissan Sentra 2015</h3>
+                <p><strong>Vendedor:</strong> Ricardo Costa</p>
+                <p><strong>Email:</strong> ricardo.costa@email.com</p>
+                <p><strong>Informações do carro:</strong> 60.000 km, 2015, Automático, Prata</p>
+                <p class="price">R$ 55.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupSentra')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupKa')">
             <img src="https://http2.mlstatic.com/D_NQ_NP_859622-MLB78251686621_082024-O.webp" alt="Ford Ka 2015" class="img">
             <div class="details">
                 <h3>Ford Ka 2015</h3>
@@ -371,7 +665,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Ka -->
+        <div class="popup" id="carPopupKa">
+            <div class="popup-content">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_859622-MLB78251686621_082024-O.webp" alt="Ford Ka 2015">
+                <h3>Ford Ka 2015</h3>
+                <p><strong>Vendedor:</strong> João Pereira</p>
+                <p><strong>Email:</strong> joao.pereira@email.com</p>
+                <p><strong>Informações do carro:</strong> 45.000 km, 2015, Manual, Azul</p>
+                <p class="price">R$ 28.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupKa')">Fechar</button>
+            </div>
+        </div>
+
+        <div class="car-card" onclick="showPopup('carPopupRenegade')">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8qt9kC8hV4P1GX6q6z1hP3-Y3y8yyNbZX9Q&s" alt="Jeep Renegade 2015" class="img">
             <div class="details">
                 <h3>Jeep Renegade 2015</h3>
@@ -380,7 +688,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Renegade -->
+        <div class="popup" id="carPopupRenegade">
+            <div class="popup-content">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8qt9kC8hV4P1GX6q6z1hP3-Y3y8yyNbZX9Q&s" alt="Jeep Renegade 2015">
+                <h3>Jeep Renegade 2015</h3>
+                <p><strong>Vendedor:</strong> Mariana Souza</p>
+                <p><strong>Email:</strong> mariana.souza@email.com</p>
+                <p><strong>Informações do carro:</strong> 70.000 km, 2015, Automático, Preto</p>
+                <p class="price">R$ 85.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupRenegade')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupDuster')">
             <img src="https://s3.ecompletocarros.dev/images/lojas/182/veiculos/207560/veiculoInfoVeiculoImagesMobile/vehicle_image_1724873331_82d3f4f2a080f1cfb0c2d4301d504a16.jpeg" alt="Renault Duster 2015" class="img">
             <div class="details">
                 <h3>Renault Duster 2015</h3>
@@ -388,6 +710,21 @@
                 <p class="price">R$ 52.000,00</p>
             </div>
         </div>
+        
+        <!-- Popup para o Duster -->
+        <div class="popup" id="carPopupDuster">
+            <div class="popup-content">
+                <img src="https://s3.ecompletocarros.dev/images/lojas/182/veiculos/207560/veiculoInfoVeiculoImagesMobile/vehicle_image_1724873331_82d3f4f2a080f1cfb0c2d4301d504a16.jpeg" alt="Renault Duster 2015">
+                <h3>Renault Duster 2015</h3>
+                <p><strong>Vendedor:</strong> Rafael Lima</p>
+                <p><strong>Email:</strong> rafael.lima@email.com</p>
+                <p><strong>Informações do carro:</strong> 65.000 km, 2015, Manual, Verde</p>
+                <p class="price">R$ 52.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupDuster')">Fechar</button>
+            </div>
+        </div>
+        
     </div>
     <footer>
         <div class="footer-links">
@@ -397,5 +734,25 @@
         </div>
         <p>&copy; 2024 CarrosX - Todos os direitos reservados.</p>
     </footer>
+    <script>
+       function showPopup(popupId) {
+    // Esconde todos os popups
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach(popup => popup.style.display = 'none');
+    
+    // Exibe o popup do carro clicado
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.style.display = 'flex';
+    }
+}
+
+function closePopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.style.display = 'none';
+    }
+        }
+    </script>
 </body>
 </html>
