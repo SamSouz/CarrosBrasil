@@ -101,7 +101,58 @@
             font-weight: bold;
             color: greenyellow; /* Ciano */
         }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
+        .popup-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .popup-content img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .popup-content h3 {
+            margin: 15px 0;
+        }
+
+        .popup-content p {
+            margin: 10px 0;
+        }
+        .buy-now-bnt {
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .popup .close-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
         /* Call to Action */
         .cta-section {
             background-color: black; 
@@ -211,7 +262,7 @@
     </div>
 
     <div class="main-content">
-        <div class="car-card">
+        <div class="car-card" onclick="showPopup('carPopupSpin2023')">
             <img src="https://img.olx.com.br/images/06/062290558851582.jpg" alt="Chevrolet Spin 2023">
             <div class="details">
                 <h3>Chevrolet Spin 2023</h3>
@@ -219,8 +270,22 @@
                 <p class="price">R$ 95.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
+        
+        <!-- Popup para o Chevrolet Spin 2023 -->
+        <div class="popup" id="carPopupSpin2023">
+            <div class="popup-content">
+                <img src="https://img.olx.com.br/images/06/062290558851582.jpg" alt="Chevrolet Spin 2023">
+                <h3>Chevrolet Spin 2023</h3>
+                <p><strong>Vendedor:</strong> Maria Souza</p>
+                <p><strong>Email:</strong> maria.souza@email.com</p>
+                <p><strong>Informações do carro:</strong> 7.000 km, 2023, Automático, Branco</p>
+                <p class="price">R$ 95.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupSpin2023')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupVirtus2022')">
             <img src="https://autoagora.com.br/wp-content/uploads/2022/12/14-avaliacao-vw-virtus-highline-comfortline-2022-movimento-autoagora-com-br.jpg-1024x480.jpg" alt="Volkswagen Virtus 2022">
             <div class="details">
                 <h3>Volkswagen Virtus 2022</h3>
@@ -228,8 +293,22 @@
                 <p class="price">R$ 110.000,00</p>
             </div>
         </div>
-
-        <div class="car-card">
+        
+        <!-- Popup para o Volkswagen Virtus 2022 -->
+        <div class="popup" id="carPopupVirtus2022">
+            <div class="popup-content">
+                <img src="https://autoagora.com.br/wp-content/uploads/2022/12/14-avaliacao-vw-virtus-highline-comfortline-2022-movimento-autoagora-com-br.jpg-1024x480.jpg" alt="Volkswagen Virtus 2022">
+                <h3>Volkswagen Virtus 2022</h3>
+                <p><strong>Vendedor:</strong> João Pereira</p>
+                <p><strong>Email:</strong> joao.pereira@email.com</p>
+                <p><strong>Informações do carro:</strong> 15.000 km, 2022, Manual, Prata</p>
+                <p class="price">R$ 110.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupVirtus2022')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupRenegade2023')">
             <img src="https://s3.ecompletocarros.dev/images/lojas/108/veiculos/149297/veiculoInfoVeiculoImagesMobile/vehicle_image_1686953162_d41d8cd98f00b204e9800998ecf8427e.jpeg" alt="Jeep Renegade 2023">
             <div class="details">
                 <h3>Jeep Renegade 2023</h3>
@@ -237,7 +316,22 @@
                 <p class="price">R$ 120.000,00</p>
             </div>
         </div>
-        <div class="car-card">
+        
+        <!-- Popup para o Jeep Renegade 2023 -->
+        <div class="popup" id="carPopupRenegade2023">
+            <div class="popup-content">
+                <img src="https://s3.ecompletocarros.dev/images/lojas/108/veiculos/149297/veiculoInfoVeiculoImagesMobile/vehicle_image_1686953162_d41d8cd98f00b204e9800998ecf8427e.jpeg" alt="Jeep Renegade 2023">
+                <h3>Jeep Renegade 2023</h3>
+                <p><strong>Vendedor:</strong> Maria Silva</p>
+                <p><strong>Email:</strong> maria.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 12.000 km, 2023, Automático, Preto</p>
+                <p class="price">R$ 120.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupRenegade2023')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupTerritory2022')">
             <img src="https://autoentusiastas.com.br/ae/wp-content/uploads/2020/08/Territory_Exterior_1_4-800x450.jpg" alt="Ford Territory 2022" class="img">
             <div class="details">
                 <h3>Ford Territory 2022</h3>
@@ -246,7 +340,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Ford Territory 2022 -->
+        <div class="popup" id="carPopupTerritory2022">
+            <div class="popup-content">
+                <img src="https://autoentusiastas.com.br/ae/wp-content/uploads/2020/08/Territory_Exterior_1_4-800x450.jpg" alt="Ford Territory 2022">
+                <h3>Ford Territory 2022</h3>
+                <p><strong>Vendedor:</strong> João Souza</p>
+                <p><strong>Email:</strong> joao.souza@email.com</p>
+                <p><strong>Informações do carro:</strong> 20.000 km, 2022, Automático, Prata</p>
+                <p class="price">R$ 160.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupTerritory2022')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupBMWX1')">
             <img src="https://www.autoo.com.br/fotos/2022/6/960_720/bmw3_01062022_71563_960_720.jpg" alt="BMW X1 2023" class="img">
             <div class="details">
                 <h3>BMW X1 2023</h3>
@@ -255,7 +363,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o BMW X1 2023 -->
+        <div class="popup" id="carPopupBMWX1">
+            <div class="popup-content">
+                <img src="https://www.autoo.com.br/fotos/2022/6/960_720/bmw3_01062022_71563_960_720.jpg" alt="BMW X1 2023">
+                <h3>BMW X1 2023</h3>
+                <p><strong>Vendedor:</strong> Carlos Martins</p>
+                <p><strong>Email:</strong> carlos.martins@email.com</p>
+                <p><strong>Informações do carro:</strong> 5.000 km, 2023, Automático, Branco</p>
+                <p class="price">R$ 230.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupBMWX1')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupToyotaHilux')">
             <img src="https://autocerto.com/fotos/2650/921370/1.jpg" alt="Toyota Hilux 2022" class="img">
             <div class="details">
                 <h3>Toyota Hilux 2022</h3>
@@ -264,7 +386,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Toyota Hilux 2022 -->
+        <div class="popup" id="carPopupToyotaHilux">
+            <div class="popup-content">
+                <img src="https://autocerto.com/fotos/2650/921370/1.jpg" alt="Toyota Hilux 2022">
+                <h3>Toyota Hilux 2022</h3>
+                <p><strong>Vendedor:</strong> João Souza</p>
+                <p><strong>Email:</strong> joao.souza@email.com</p>
+                <p><strong>Informações do carro:</strong> 15.000 km, 2022, Automático, Prata</p>
+                <p class="price">R$ 230.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupToyotaHilux')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupMitsubishiL200')">
             <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/283761836/transform/t_crop" alt="Mitsubishi L200 Triton 2023" class="img">
             <div class="details">
                 <h3>Mitsubishi L200 Triton 2023</h3>
@@ -273,7 +409,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Mitsubishi L200 Triton 2023 -->
+        <div class="popup" id="carPopupMitsubishiL200">
+            <div class="popup-content">
+                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/283761836/transform/t_crop" alt="Mitsubishi L200 Triton 2023">
+                <h3>Mitsubishi L200 Triton 2023</h3>
+                <p><strong>Vendedor:</strong> Carlos Almeida</p>
+                <p><strong>Email:</strong> carlos.almeida@email.com</p>
+                <p><strong>Informações do carro:</strong> 10.000 km, 2023, Manual, Azul</p>
+                <p class="price">R$ 200.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupMitsubishiL200')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupCheryTiggo5X')">
             <img src="https://seminovosrj.com.br/fotos/784/1051284/11.jpg" alt="Chery Tiggo 5X 2022" class="img">
             <div class="details">
                 <h3>Chery Tiggo 5X 2022</h3>
@@ -282,7 +432,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Chery Tiggo 5X 2022 -->
+        <div class="popup" id="carPopupCheryTiggo5X">
+            <div class="popup-content">
+                <img src="https://seminovosrj.com.br/fotos/784/1051284/11.jpg" alt="Chery Tiggo 5X 2022">
+                <h3>Chery Tiggo 5X 2022</h3>
+                <p><strong>Vendedor:</strong> Fernanda Oliveira</p>
+                <p><strong>Email:</strong> fernanda.oliveira@email.com</p>
+                <p><strong>Informações do carro:</strong> 8.000 km, 2022, Automático, Vermelho</p>
+                <p class="price">R$ 135.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupCheryTiggo5X')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupHondaCity')">
             <img src="https://www.timbonet.com.br/wp-content/uploads/2022/01/c667bc18-dc51-4102-9a4d-75d75ae12a7b.jpg" alt="Honda City 2022" class="img">
             <div class="details">
                 <h3>Honda City 2022</h3>
@@ -291,7 +455,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Honda City 2022 -->
+        <div class="popup" id="carPopupHondaCity">
+            <div class="popup-content">
+                <img src="https://www.timbonet.com.br/wp-content/uploads/2022/01/c667bc18-dc51-4102-9a4d-75d75ae12a7b.jpg" alt="Honda City 2022">
+                <h3>Honda City 2022</h3>
+                <p><strong>Vendedor:</strong> Rafael Costa</p>
+                <p><strong>Email:</strong> rafael.costa@email.com</p>
+                <p><strong>Informações do carro:</strong> 12.000 km, 2022, Manual, Cinza</p>
+                <p class="price">R$ 105.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupHondaCity')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupPeugeot3008')">
             <img src="https://s3.ecompletocarros.dev/images/lojas/209/veiculos/53049/veiculoInfoVeiculoImagesMobile/vehicle_image_1613160435_f869df8e90d1d2f8939ee8e749b7a96f.jpeg" alt="Peugeot 3008 2023" class="img">
             <div class="details">
                 <h3>Peugeot 3008 2023</h3>
@@ -300,7 +478,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Peugeot 3008 2023 -->
+        <div class="popup" id="carPopupPeugeot3008">
+            <div class="popup-content">
+                <img src="https://s3.ecompletocarros.dev/images/lojas/209/veiculos/53049/veiculoInfoVeiculoImagesMobile/vehicle_image_1613160435_f869df8e90d1d2f8939ee8e749b7a96f.jpeg" alt="Peugeot 3008 2023">
+                <h3>Peugeot 3008 2023</h3>
+                <p><strong>Vendedor:</strong> Lucas Martins</p>
+                <p><strong>Email:</strong> lucas.martins@email.com</p>
+                <p><strong>Informações do carro:</strong> 6.000 km, 2023, Automático, Preto</p>
+                <p class="price">R$ 195.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupPeugeot3008')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupKiaSeltos')">
             <img src="https://baycitymitsubishi.co.nz/wp-content/uploads/2023/11/2022-Kia-Seltos-LxPJE356-1.jpg" alt="Kia Seltos 2022" class="img">
             <div class="details">
                 <h3>Kia Seltos 2022</h3>
@@ -309,7 +501,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Kia Seltos 2022 -->
+        <div class="popup" id="carPopupKiaSeltos">
+            <div class="popup-content">
+                <img src="https://baycitymitsubishi.co.nz/wp-content/uploads/2023/11/2022-Kia-Seltos-LxPJE356-1.jpg" alt="Kia Seltos 2022">
+                <h3>Kia Seltos 2022</h3>
+                <p><strong>Vendedor:</strong> Mariana Silva</p>
+                <p><strong>Email:</strong> mariana.silva@email.com</p>
+                <p><strong>Informações do carro:</strong> 9.000 km, 2022, Automático, Branco</p>
+                <p class="price">R$ 135.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupKiaSeltos')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupAudiQ3')">
             <img src="https://www.autoo.com.br/fotos/2021/12/1280_960/Audi4_14122021_70084_1280_960.jpg" alt="Audi Q3 2022" class="img">
             <div class="details">
                 <h3>Audi Q3 2022</h3>
@@ -318,7 +524,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Audi Q3 2022 -->
+        <div class="popup" id="carPopupAudiQ3">
+            <div class="popup-content">
+                <img src="https://www.autoo.com.br/fotos/2021/12/1280_960/Audi4_14122021_70084_1280_960.jpg" alt="Audi Q3 2022">
+                <h3>Audi Q3 2022</h3>
+                <p><strong>Vendedor:</strong> Eduardo Lima</p>
+                <p><strong>Email:</strong> eduardo.lima@email.com</p>
+                <p><strong>Informações do carro:</strong> 10.000 km, 2022, Automático, Azul</p>
+                <p class="price">R$ 230.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupAudiQ3')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupNissanFrontier')">
             <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/417164307/transform/fl_progressive,f_webp,q_70,w_600" alt="Nissan Frontier 2022" class="img">
             <div class="details">
                 <h3>Nissan Frontier 2022</h3>
@@ -327,7 +547,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Nissan Frontier 2022 -->
+        <div class="popup" id="carPopupNissanFrontier">
+            <div class="popup-content">
+                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/417164307/transform/fl_progressive,f_webp,q_70,w_600" alt="Nissan Frontier 2022">
+                <h3>Nissan Frontier 2022</h3>
+                <p><strong>Vendedor:</strong> Gabriel Souza</p>
+                <p><strong>Email:</strong> gabriel.souza@email.com</p>
+                <p><strong>Informações do carro:</strong> 15.000 km, 2022, Automático, Cinza</p>
+                <p class="price">R$ 180.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupNissanFrontier')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupVolkswagenNivus')">
             <img src="https://www.santoantonioautomoveis.com.br/carros/98b8ddebce14bd647ff83564fa7cfc75-bigjpeg-volkswagen-nivus-10727559-1000-750-70.jpg" alt="Volkswagen Nivus 2022" class="img">
             <div class="details">
                 <h3>Volkswagen Nivus 2022</h3>
@@ -336,7 +570,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Volkswagen Nivus 2022 -->
+        <div class="popup" id="carPopupVolkswagenNivus">
+            <div class="popup-content">
+                <img src="https://www.santoantonioautomoveis.com.br/carros/98b8ddebce14bd647ff83564fa7cfc75-bigjpeg-volkswagen-nivus-10727559-1000-750-70.jpg" alt="Volkswagen Nivus 2022">
+                <h3>Volkswagen Nivus 2022</h3>
+                <p><strong>Vendedor:</strong> Ana Beatriz</p>
+                <p><strong>Email:</strong> ana.beatriz@email.com</p>
+                <p><strong>Informações do carro:</strong> 10.000 km, 2022, Automático, Prata</p>
+                <p class="price">R$ 100.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupVolkswagenNivus')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupHondaWRV')">
             <img src="https://s2-autoesporte.glbimg.com/0nGW5_nuzDiX_zVI5yHZxFLGP7U=/0x0:1024x683/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/s/Z/9DDRF6TvW8aTlQ2fYTsg/wr-v.jpg" alt="Honda WR-V 2022" class="img">
             <div class="details">
                 <h3>Honda WR-V 2022</h3>
@@ -345,7 +593,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Honda WR-V 2022 -->
+        <div class="popup" id="carPopupHondaWRV">
+            <div class="popup-content">
+                <img src="https://s2-autoesporte.glbimg.com/0nGW5_nuzDiX_zVI5yHZxFLGP7U=/0x0:1024x683/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/s/Z/9DDRF6TvW8aTlQ2fYTsg/wr-v.jpg" alt="Honda WR-V 2022">
+                <h3>Honda WR-V 2022</h3>
+                <p><strong>Vendedor:</strong> Juliana Ferreira</p>
+                <p><strong>Email:</strong> juliana.ferreira@email.com</p>
+                <p><strong>Informações do carro:</strong> 8.000 km, 2022, Manual, Branco</p>
+                <p class="price">R$ 95.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupHondaWRV')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupChevroletTracker')">
             <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2023/04/Chevrolet-Tracker-RS-8-1-e1711576355198.jpg?crop=1&resize=1212,909" alt="Chevrolet Tracker 2023" class="img">
             <div class="details">
                 <h3>Chevrolet Tracker 2023</h3>
@@ -354,7 +616,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Chevrolet Tracker 2023 -->
+        <div class="popup" id="carPopupChevroletTracker">
+            <div class="popup-content">
+                <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2023/04/Chevrolet-Tracker-RS-8-1-e1711576355198.jpg?crop=1&resize=1212,909" alt="Chevrolet Tracker 2023">
+                <h3>Chevrolet Tracker 2023</h3>
+                <p><strong>Vendedor:</strong> Pedro Almeida</p>
+                <p><strong>Email:</strong> pedro.almeida@email.com</p>
+                <p><strong>Informações do carro:</strong> 7.000 km, 2023, Automático, Vermelho</p>
+                <p class="price">R$ 140.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupChevroletTracker')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupFiatPulse')">
             <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2021/10/Fiat-Pulse-Impetus-Turbo-200-1.0-CVT-2022-11.jpg?quality=70&strip=info&w=720&crop=1" alt="Fiat Pulse 2022" class="img">
             <div class="details">
                 <h3>Fiat Pulse 2022</h3>
@@ -363,7 +639,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Fiat Pulse 2022 -->
+        <div class="popup" id="carPopupFiatPulse">
+            <div class="popup-content">
+                <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2021/10/Fiat-Pulse-Impetus-Turbo-200-1.0-CVT-2022-11.jpg?quality=70&strip=info&w=720&crop=1" alt="Fiat Pulse 2022">
+                <h3>Fiat Pulse 2022</h3>
+                <p><strong>Vendedor:</strong> Lucas Pereira</p>
+                <p><strong>Email:</strong> lucas.pereira@email.com</p>
+                <p><strong>Informações do carro:</strong> 9.000 km, 2022, Automático, Azul</p>
+                <p class="price">R$ 85.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupFiatPulse')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupToyotaSW4')">
             <img src="https://www.compreblindados.com.br/img/Veiculos/28922/20210807-toyota-hillux-sw4-preto-20216605.jpeg" alt="Toyota SW4 2023" class="img">
             <div class="details">
                 <h3>Toyota SW4 2023</h3>
@@ -371,7 +661,22 @@
                 <p class="price">R$ 230.000,00</p>
             </div>
         </div>
-        <div class="car-card">
+        
+        <!-- Popup para o Toyota SW4 2023 -->
+        <div class="popup" id="carPopupToyotaSW4">
+            <div class="popup-content">
+                <img src="https://www.compreblindados.com.br/img/Veiculos/28922/20210807-toyota-hillux-sw4-preto-20216605.jpeg" alt="Toyota SW4 2023">
+                <h3>Toyota SW4 2023</h3>
+                <p><strong>Vendedor:</strong> Carlos Martins</p>
+                <p><strong>Email:</strong> carlos.martins@email.com</p>
+                <p><strong>Informações do carro:</strong> 5.000 km, 2023, Automático, Preto</p>
+                <p class="price">R$ 230.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupToyotaSW4')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupFiatUno')">
             <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjkxODkyL0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNzAzNjAwNjQyMzU4LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjU0MCwiaGVpZ2h0IjozMTB9fX0=" alt="Fiat Uno 2022" class="img">
             <div class="details">
                 <h3>Fiat Uno 2022</h3>
@@ -380,7 +685,21 @@
             </div>
         </div>
         
-        <div class="car-card">
+        <!-- Popup para o Fiat Uno 2022 -->
+        <div class="popup" id="carPopupFiatUno">
+            <div class="popup-content">
+                <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjkxODkyL0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNzAzNjAwNjQyMzU4LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjU0MCwiaGVpZ2h0IjozMTB9fX0=" alt="Fiat Uno 2022">
+                <h3>Fiat Uno 2022</h3>
+                <p><strong>Vendedor:</strong> Renata Oliveira</p>
+                <p><strong>Email:</strong> renata.oliveira@email.com</p>
+                <p><strong>Informações do carro:</strong> 6.000 km, 2022, Manual, Branco</p>
+                <p class="price">R$ 55.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupFiatUno')">Fechar</button>
+            </div>
+        </div>
+        
+        <div class="car-card" onclick="showPopup('carPopupVolkswagenSaveiro')">
             <img src="https://i.ytimg.com/vi/e6VBis3-5lU/sddefault.jpg" alt="Volkswagen Saveiro 2022" class="img">
             <div class="details">
                 <h3>Volkswagen Saveiro 2022</h3>
@@ -388,6 +707,21 @@
                 <p class="price">R$ 80.000,00</p>
             </div>
         </div>
+        
+        <!-- Popup para o Volkswagen Saveiro 2022 -->
+        <div class="popup" id="carPopupVolkswagenSaveiro">
+            <div class="popup-content">
+                <img src="https://i.ytimg.com/vi/e6VBis3-5lU/sddefault.jpg" alt="Volkswagen Saveiro 2022">
+                <h3>Volkswagen Saveiro 2022</h3>
+                <p><strong>Vendedor:</strong> Thiago Costa</p>
+                <p><strong>Email:</strong> thiago.costa@email.com</p>
+                <p><strong>Informações do carro:</strong> 8.000 km, 2022, Manual, Vermelho</p>
+                <p class="price">R$ 80.000,00</p>
+                <a href="https://carrosbrasil.netlify.app/pagamentos" class="buy-now-bnt">Comprar Agora</a>
+                <button class="close-btn" onclick="closePopup('carPopupVolkswagenSaveiro')">Fechar</button>
+            </div>
+        </div>
+        
         
         
         <!-- Mais carros... -->
@@ -400,5 +734,24 @@
         </div>
         <p>&copy; 2024 CarrosX - Todos os direitos reservados.</p>
     </footer>
+    <script>    function showPopup(popupId) {
+        // Esconde todos os popups
+        const popups = document.querySelectorAll('.popup');
+        popups.forEach(popup => popup.style.display = 'none');
+        
+        // Exibe o popup do carro clicado
+        const popup = document.getElementById(popupId);
+        if (popup) {
+            popup.style.display = 'flex';
+        }
+    }
+    
+    function closePopup(popupId) {
+        const popup = document.getElementById(popupId);
+        if (popup) {
+            popup.style.display = 'none';
+        }
+            }
+            </script>
 </body>
 </html>
