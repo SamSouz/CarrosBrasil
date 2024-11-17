@@ -340,38 +340,18 @@
     </footer>
 
     <script>
-          document.getElementById("formulario").addEventListener("submit", function(event) {
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
             event.preventDefault();  // Previne o envio real do formulário
-
+    
             var select = document.getElementById("carros");
             var selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
             
             alert("Carros selecionados: " + selectedOptions.join(", "));
         });
-             function limparFormulario() {
-            var formulario = document.getElementById("meuFormulario");
-            
-            // Limpar todos os campos de entrada (inputs)
-            for (var i = 0; i < formulario.elements.length; i++) {
-                var campo = formulario.elements[i];
-                if (campo.type === "text" || campo.type === "email" || campo.type === "password" || campo.type === "textarea") {
-                    campo.value = "";  // Limpa o valor do campo
-                }
-            }
-
-            // Limpar o histórico de preenchimento (no navegador)
-            formulario.reset();
-        }
-         window.onload = function() {
-        
-        // Máscaras de entrada
-        Inputmask("9999 9999 9999 9999").mask(document.getElementById('numero_cartao'));
-        Inputmask("99/9999").mask(document.getElementById('data_validade'));
-        Inputmask("999").mask(document.getElementById('codigo_seg'));
-    };
+    
         function mostrarPopup(event) {
             event.preventDefault(); // Impede o envio do formulário
-
+    
             // Verifica se todos os campos estão preenchidos
             const form = document.getElementById('paymentForm');
             const inputs = form.querySelectorAll('input');
@@ -381,34 +361,41 @@
                     formValid = false;
                 }
             });
-
+    
             if (formValid) {
                 // Mostra o modal
                 document.getElementById('popupModal').style.display = 'block';
+    
+                // Limpa os campos do formulário
+                form.reset();  // Limpa o formulário
+    
             } else {
                 alert("Por favor, preencha todos os campos.");
             }
         }
-
-        // Fechar o modal
-        document.querySelector('.close').onclick = function() {
+    
+        // Fechar o modal quando o usuário clicar na 'X' ou fora da área do modal
+        function closeModal() {
             document.getElementById('popupModal').style.display = 'none';
         }
-
+    
+        // Adicionando evento de clique para fechar o modal
+        document.querySelector('.close').addEventListener('click', closeModal);
+    
         // Fechar o modal se clicar fora da área do modal
-        window.onclick = function(event) {
+        window.addEventListener('click', function(event) {
             if (event.target === document.getElementById('popupModal')) {
-                document.getElementById('popupModal').style.display = 'none';
+                closeModal();
             }
-        }
-
+        });
+    
         // Função para formatar o valor do pagamento
         function formatarValor(input) {
             let valor = input.value;
-
+    
             // Remove tudo que não for número
             valor = valor.replace(/\D/g, "");
-
+    
             // Adiciona o R$ no começo e formata como moeda
             valor = valor.replace(/(\d{2})$/g, ",$1");
             if (valor.length > 6) {
@@ -420,10 +407,12 @@
             if (valor.length > 12) {
                 valor = valor.replace(/(\d{3})(\d{3}\.\d{3}\.\d{3},\d{2}$)/, "$1.$2");
             }
-
+    
             // Coloca o valor formatado de volta
             input.value = "R$ " + valor;
         }
     </script>
+    
+    
 </body>
 </html>
