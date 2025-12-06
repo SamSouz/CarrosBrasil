@@ -317,6 +317,7 @@
 
             <button type="submit" class="btn">Pagar Agora</button>
         </form>
+        
     </div>
 
     <!-- Modal de Confirmação -->
@@ -339,80 +340,78 @@
         <p>&copy; 2024 CarrosX - Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        document.getElementById("paymentForm").addEventListener("submit", function(event) {
-            event.preventDefault();  // Previne o envio real do formulário
-    
-            var select = document.getElementById("carros");
-            var selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
+   <script>
+    document.getElementById("paymentForm").addEventListener("submit", function(event) {
+        event.preventDefault();  // Previne o envio real do formulário
+
+        var select = document.getElementById("carros");
+        var selectedCarro = select.value;
+
+        // Verificar se todos os campos foram preenchidos
+        const form = document.getElementById('paymentForm');
+        const inputs = form.querySelectorAll('input');
+        let formValid = true;
+        inputs.forEach(input => {
+            if (input.value === "") {
+                formValid = false;
+            }
+        });
+
+        if (formValid) {
+            // Enviar os dados para o Google Sheets
+            enviarDadosParaGoogleSheets(form);
             
-            alert("Carros selecionados: " + selectedOptions.join(", "));
-        });
-    
-        function mostrarPopup(event) {
-            event.preventDefault(); // Impede o envio do formulário
-    
-            // Verifica se todos os campos estão preenchidos
-            const form = document.getElementById('paymentForm');
-            const inputs = form.querySelectorAll('input');
-            let formValid = true;
-            inputs.forEach(input => {
-                if (input.value === "") {
-                    formValid = false;
-                }
-            });
-    
-            if (formValid) {
-                // Mostra o modal
-                document.getElementById('popupModal').style.display = 'block';
-    
-                // Limpa os campos do formulário
-                form.reset();  // Limpa o formulário
-    
-            } else {
-                alert("Por favor, preencha todos os campos.");
-            }
+            // Exibir o modal de sucesso
+            document.getElementById('popupModal').style.display = 'block';
+            form.reset();  // Limpa o formulário após o envio
+        } else {
+            alert("Por favor, preencha todos os campos.");
         }
-    
-        // Fechar o modal quando o usuário clicar na 'X' ou fora da área do modal
-        function closeModal() {
-            document.getElementById('popupModal').style.display = 'none';
+    });
+
+function enviarDadosParaGoogleSheets(form) {
+    const dados = new FormData(form);
+
+    const url = 'https://script.google.com/macros/s/AKfycbxFoXLRZt5AtanCfMjGjUruqHh5HNHDj3al_VP0CU6lHYu9TIHwaxl2D29yx6OHmMwX/exec';
+
+    fetch(url, {
+        method: 'POST',
+        body: dados
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Dados enviados com sucesso:', data);
+    })
+    .catch(error => {
+        console.error('Erro ao enviar dados:', error);
+    });
+}
+
+
+    // Função para formatar o valor do pagamento
+    function formatarValor(input) {
+        let valor = input.value;
+
+        // Remove tudo que não for número
+        valor = valor.replace(/\D/g, "");
+
+        // Adiciona o R$ no começo e formata como moeda
+        valor = valor.replace(/(\d{2})$/g, ",$1");
+        if (valor.length > 6) {
+            valor = valor.replace(/(\d{3})(\d{3},\d{2}$)/, "$1.$2");
         }
-    
-        // Adicionando evento de clique para fechar o modal
-        document.querySelector('.close').addEventListener('click', closeModal);
-    
-        // Fechar o modal se clicar fora da área do modal
-        window.addEventListener('click', function(event) {
-            if (event.target === document.getElementById('popupModal')) {
-                closeModal();
-            }
-        });
-    
-        // Função para formatar o valor do pagamento
-        function formatarValor(input) {
-            let valor = input.value;
-    
-            // Remove tudo que não for número
-            valor = valor.replace(/\D/g, "");
-    
-            // Adiciona o R$ no começo e formata como moeda
-            valor = valor.replace(/(\d{2})$/g, ",$1");
-            if (valor.length > 6) {
-                valor = valor.replace(/(\d{3})(\d{3},\d{2}$)/, "$1.$2");
-            }
-            if (valor.length > 9) {
-                valor = valor.replace(/(\d{3})(\d{3}\.\d{3},\d{2}$)/, "$1.$2");
-            }
-            if (valor.length > 12) {
-                valor = valor.replace(/(\d{3})(\d{3}\.\d{3}\.\d{3},\d{2}$)/, "$1.$2");
-            }
-    
-            // Coloca o valor formatado de volta
-            input.value = "R$ " + valor;
+        if (valor.length > 9) {
+            valor = valor.replace(/(\d{3})(\d{3}\.\d{3},\d{2}$)/, "$1.$2");
         }
-    </script>
-    
+        if (valor.length > 12) {
+            valor = valor.replace(/(\d{3})(\d{3}\.\d{3}\.\d{3},\d{2}$)/, "$1.$2");
+        }
+
+        // Coloca o valor formatado de volta
+        input.value = "R$ " + valor;
+    }
+</script>
+
     
 </body>
 </html>
